@@ -79,6 +79,7 @@ export class ApolloClientManager implements IApolloClientManager {
   getCheckout = async (checkoutToken: string | null) => {
     let checkout: Checkout | null;
     try {
+      console.log("g");
       checkout = await new Promise((resolve, reject) => {
         if (this.isLoggedIn()) {
           const observable = this.client.watchQuery<UserCheckoutDetails, any>({
@@ -87,6 +88,7 @@ export class ApolloClientManager implements IApolloClientManager {
           });
           observable.subscribe(
             result => {
+              console.log("e", result);
               const { data, errors } = result;
               if (errors?.length) {
                 reject(errors);
