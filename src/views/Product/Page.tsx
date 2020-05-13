@@ -12,7 +12,7 @@ import GalleryCarousel from "./GalleryCarousel";
 import { ProductDetails_product } from "./gqlTypes/ProductDetails";
 import OtherProducts from "./Other";
 
-import { ICheckoutModelLine } from "@sdk/repository";
+import { ICheckoutModelLine } from "@sdk/helpers";
 import { ProductDescription as NewProductDescription } from "../../@next/components/molecules";
 import { ProductGallery } from "../../@next/components/organisms/";
 
