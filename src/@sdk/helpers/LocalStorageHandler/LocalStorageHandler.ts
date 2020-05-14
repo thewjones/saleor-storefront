@@ -61,6 +61,9 @@ class LocalStorageHandlerProxy extends NamedObservable<LocalStorageItems> {
     }
     return null;
   }
+  protected clearStorage(): void {
+    localStorage.clear();
+  }
 }
 
 export class LocalStorageHandler extends LocalStorageHandlerProxy
@@ -90,5 +93,8 @@ export class LocalStorageHandler extends LocalStorageHandlerProxy
   }
   setJobs(jobs: { [key: string]: { [key: string]: boolean } } | null): void {
     return this.saveObject(LocalStorageItems.JOB_QUEUE_CHECKOUT, jobs);
+  }
+  clear(): void {
+    this.clearStorage();
   }
 }
