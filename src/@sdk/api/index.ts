@@ -10,11 +10,13 @@ import { Config } from "../types";
 import { APIProxy } from "./APIProxy";
 import { SaleorCartAPI } from "./Cart";
 import { SaleorCheckoutAPI } from "./Checkout";
+import { UserAPI } from "./User";
 
 export * from "./Checkout";
 export * from "./Cart";
 
 export class SaleorAPI {
+  user: UserAPI;
   checkout: SaleorCheckoutAPI;
   cart: SaleorCartAPI;
 
@@ -45,6 +47,7 @@ export class SaleorAPI {
     const apolloClientManager = new ApolloClientManager(client);
     const saleorState = new SaleorState(
       localStorageHandler,
+      client,
       apolloClientManager
     );
     const localStorageManager = new LocalStorageManager(
@@ -60,6 +63,7 @@ export class SaleorAPI {
       saleorState.subscribeToNotifiedChanges(onStateUpdate);
     }
 
+    this.user = new UserAPI(saleorState, loadOnStart.user, jobsManager);
     this.checkout = new SaleorCheckoutAPI(
       saleorState,
       loadOnStart.checkout,

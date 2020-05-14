@@ -28,6 +28,7 @@ export type WatchQueryData<T extends (...args: any) => any> = ReturnType<
 
 export interface Config {
   loadOnStart: {
+    user: boolean;
     checkout: boolean;
     cart: boolean;
   };

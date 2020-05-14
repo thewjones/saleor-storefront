@@ -1,4 +1,4 @@
-import { ApolloError } from "apollo-client";
+import { ApolloError, ObservableQuery, ApolloQueryResult } from "apollo-client";
 
 import {
   ICheckoutAddress,
@@ -6,7 +6,8 @@ import {
   ICheckoutModelLine,
   IOrderModel,
   IPaymentModel,
-} from "@temp/@sdk/helpers/LocalStorageHandler";
+} from "@sdk/helpers/LocalStorageHandler";
+import { UserDetails } from "@sdk/queries/types/UserDetails";
 
 export enum PendingSaveItems {
   UPDATE_CART = "updateCart",
@@ -27,6 +28,11 @@ export interface IApolloClientManagerResponse<T> {
 }
 
 export interface IApolloClientManager {
+  watchUser: (
+    next: (value: ApolloQueryResult<UserDetails>) => void,
+    error?: (error: any) => void,
+    complete?: () => void
+  ) => void;
   getCheckout: (
     checkoutToken: string | null
   ) => Promise<IApolloClientManagerResponse<ICheckoutModel>>;

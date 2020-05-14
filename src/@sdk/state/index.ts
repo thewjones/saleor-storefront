@@ -1,7 +1,9 @@
+import ApolloClient from "apollo-client";
 import { round } from "lodash";
 
 import { DataErrorCheckoutTypes } from "../api/Checkout/types";
 import { ApolloClientManager } from "../data/ApolloClientManager";
+import { User } from "../fragments/types/User";
 import { NamedObservable } from "../helpers";
 import {
   ICheckoutModel,
@@ -15,6 +17,8 @@ import { ISaleorState, ISaleorStateSummeryPrices, StateItems } from "./types";
 
 export class SaleorState extends NamedObservable<StateItems>
   implements ISaleorState {
+  user?: User | null;
+  signInToken?: string | null;
   checkout?: ICheckoutModel;
   promoCode?: string;
   selectedShippingAddressId?: string;
@@ -25,14 +29,17 @@ export class SaleorState extends NamedObservable<StateItems>
   availablePaymentGateways?: GetShopPaymentGateways_shop_availablePaymentGateways[];
 
   private localStorageHandler: LocalStorageHandler;
+  private apolloClient: ApolloClient<any>;
   private apolloClientManager: ApolloClientManager;
 
   constructor(
     localStorageHandler: LocalStorageHandler,
+    apolloClient: ApolloClient<any>,
     apolloClientManager: ApolloClientManager
   ) {
     super();
     this.localStorageHandler = localStorageHandler;
+    this.apolloClient = apolloClient;
     this.apolloClientManager = apolloClientManager;
 
     localStorageHandler.subscribeToChange(
@@ -43,6 +50,11 @@ export class SaleorState extends NamedObservable<StateItems>
       LocalStorageItems.PAYMENT,
       this.onPaymentUpdate
     );
+    localStorageHandler.subscribeToChange(
+      LocalStorageItems.TOKEN,
+      this.onSignInTokenUpdate
+    );
+    apolloClientManager.watchUser(value => this.onUserUpdate(value.data.me));
   }
 
   provideCheckout = async (
@@ -80,6 +92,14 @@ export class SaleorState extends NamedObservable<StateItems>
     await this.providePaymentGatewaysOnline(onError);
   };
 
+  private onSignInTokenUpdate = (token: string | null) => {
+    this.signInToken = token;
+    this.notifyChange(StateItems.SIGN_IN_TOKEN, this.signInToken);
+  };
+  private onUserUpdate = (user: User | null) => {
+    this.user = user;
+    this.notifyChange(StateItems.USER, this.user);
+  };
   private onCheckoutUpdate = (checkout: ICheckoutModel) => {
     this.checkout = checkout;
     this.summaryPrices = this.calculateSummaryPrices(checkout);

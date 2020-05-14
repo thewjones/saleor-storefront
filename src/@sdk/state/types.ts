@@ -1,3 +1,4 @@
+import { User } from "../fragments/types/User";
 import {
   ICheckoutModel,
   ICheckoutModelPrice,
@@ -7,6 +8,8 @@ import {
 import { GetShopPaymentGateways_shop_availablePaymentGateways } from "../queries/gqlTypes/GetShopPaymentGateways";
 
 export enum StateItems {
+  USER,
+  SIGN_IN_TOKEN,
   CHECKOUT,
   SUMMARY_PRICES,
   PROMO_CODE,
@@ -22,6 +25,7 @@ export interface ISaleorStateSummeryPrices {
 }
 
 export interface ISaleorState {
+  user?: User | null;
   checkout?: ICheckoutModel;
   selectedShippingAddressId?: string;
   selectedBillingAddressId?: string;

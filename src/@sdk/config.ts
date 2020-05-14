@@ -4,5 +4,6 @@ export const defaultConfig: Config = {
   loadOnStart: {
     cart: true,
     checkout: true,
+    user: true,
   },
 };

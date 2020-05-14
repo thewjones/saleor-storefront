@@ -65,6 +65,12 @@ class LocalStorageHandlerProxy extends NamedObservable<LocalStorageItems> {
 
 export class LocalStorageHandler extends LocalStorageHandlerProxy
   implements ILocalStorageHandler {
+  getSignInToken(): string | null {
+    return this.retrieveItem(LocalStorageItems.TOKEN);
+  }
+  setSignInToken(token: string | null): void {
+    this.saveItem(LocalStorageItems.TOKEN, token);
+  }
   getCheckout(): ICheckoutModel | null {
     return this.retrieveObject(LocalStorageItems.CHECKOUT);
   }
