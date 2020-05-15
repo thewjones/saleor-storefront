@@ -12,6 +12,7 @@ import {
   IOrderModel,
   IPaymentModel,
 } from "@sdk/helpers/LocalStorageHandler";
+import * as AuthMutations from "@sdk/mutations/auth";
 import * as CheckoutMutations from "@sdk/mutations/checkout";
 import {
   AddCheckoutPromoCode,
@@ -33,6 +34,10 @@ import {
   RemoveCheckoutPromoCode,
   RemoveCheckoutPromoCodeVariables,
 } from "@sdk/mutations/gqlTypes/RemoveCheckoutPromoCode";
+import {
+  TokenAuth,
+  TokenAuthVariables,
+} from "@sdk/mutations/gqlTypes/TokenAuth";
 import {
   UpdateCheckoutBillingAddress,
   UpdateCheckoutBillingAddressVariables,
@@ -69,9 +74,7 @@ import * as ShopQueries from "@sdk/queries/shop";
 import * as UserQueries from "@sdk/queries/user";
 import { filterNotEmptyArrayItems } from "@sdk/utils";
 
-import { IApolloClientManager } from "./types";
-
-export class ApolloClientManager implements IApolloClientManager {
+export class ApolloClientManager {
   private client: ApolloClient<any>;
 
   constructor(client: ApolloClient<any>) {
@@ -91,12 +94,46 @@ export class ApolloClientManager implements IApolloClientManager {
       .subscribe(next, error, complete);
   };
 
-  // getUser = () => {
-  //   return this.client.query<UserDetails, any>({
-  //     fetchPolicy: "network-only",
-  //     query: UserQueries.getUserDetailsQuery,
-  //   });
-  // };
+  getUser = () => {
+    return this.client.query<UserDetails, any>({
+      fetchPolicy: "network-only",
+      query: UserQueries.getUserDetailsQuery,
+    });
+  };
+
+  signIn = async (email: string, password: string) => {
+    const { data, errors } = await this.client.mutate<
+      TokenAuth,
+      TokenAuthVariables
+    >({
+      mutation: AuthMutations.tokenAuthMutation,
+      variables: {
+        email,
+        password,
+      },
+    });
+
+    if (errors?.length) {
+      return {
+        error: errors,
+      };
+    } else if (data?.tokenCreate?.accountErrors) {
+      return {
+        error: data.tokenCreate.accountErrors,
+      };
+    } else {
+      return {
+        data: {
+          token: data?.tokenCreate?.token,
+          user: data?.tokenCreate?.user,
+        },
+      };
+    }
+  };
+
+  signOut = async () => {
+    await this.client.resetStore();
+  };
 
   getCheckout = async (checkoutToken: string | null) => {
     let checkout: Checkout | null;

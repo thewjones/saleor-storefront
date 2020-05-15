@@ -1,10 +1,5 @@
 import { NamedObservable } from "../NamedObservable";
-import {
-  ICheckoutModel,
-  ILocalStorageHandler,
-  IPaymentModel,
-  LocalStorageItems,
-} from "./types";
+import { ICheckoutModel, IPaymentModel, LocalStorageItems } from "./types";
 
 /**
  * Sets or removes data from local storage in one of the specified data format.
@@ -66,8 +61,7 @@ class LocalStorageHandlerProxy extends NamedObservable<LocalStorageItems> {
   }
 }
 
-export class LocalStorageHandler extends LocalStorageHandlerProxy
-  implements ILocalStorageHandler {
+export class LocalStorageHandler extends LocalStorageHandlerProxy {
   getSignInToken(): string | null {
     return this.retrieveItem(LocalStorageItems.TOKEN);
   }

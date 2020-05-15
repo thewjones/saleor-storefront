@@ -42,20 +42,26 @@ export class SaleorState extends NamedObservable<StateItems>
     this.apolloClient = apolloClient;
     this.apolloClientManager = apolloClientManager;
 
-    localStorageHandler.subscribeToChange(
+    this.localStorageHandler.subscribeToChange(
       LocalStorageItems.CHECKOUT,
       this.onCheckoutUpdate
     );
-    localStorageHandler.subscribeToChange(
+    this.localStorageHandler.subscribeToChange(
       LocalStorageItems.PAYMENT,
       this.onPaymentUpdate
     );
-    localStorageHandler.subscribeToChange(
+    this.localStorageHandler.subscribeToChange(
       LocalStorageItems.TOKEN,
       this.onSignInTokenUpdate
     );
-    apolloClientManager.watchUser(value => this.onUserUpdate(value.data.me));
+    this.apolloClientManager.watchUser(value =>
+      this.onUserUpdate(value.data.me)
+    );
   }
+
+  provideSignInToken = () => {
+    this.onSignInTokenUpdate(this.localStorageHandler.getSignInToken());
+  };
 
   provideCheckout = async (
     onError: (

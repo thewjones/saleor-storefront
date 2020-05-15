@@ -124,10 +124,3 @@ export interface IOrderModel {
   token?: string;
   number?: string | null;
 }
-
-export interface ILocalStorageHandler {
-  getCheckout(): ICheckoutModel | null;
-  setCheckout(checkout: ICheckoutModel | null): void;
-  getPayment(): IPaymentModel | null;
-  setPayment(payment: IPaymentModel | null): void;
-}

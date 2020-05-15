@@ -1,11 +1,18 @@
-import { DataErrorCheckoutTypes, ICreditCard } from "@sdk/api/Checkout/types";
-import { ApolloClientManager } from "@temp/@sdk/data/ApolloClientManager";
+import {
+  DataErrorCheckoutTypes,
+  FunctionErrorCheckoutTypes,
+  ICreditCard,
+} from "@sdk/api/Checkout/types";
+import { ApolloClientManager } from "@sdk/data/ApolloClientManager";
 import {
   ICheckoutAddress,
   LocalStorageHandler,
-} from "@temp/@sdk/helpers/LocalStorageHandler";
+} from "@sdk/helpers/LocalStorageHandler";
+import { JobRunResponse } from "../types";
 
-import { PromiseCheckoutJobRunResponse } from "../types";
+export type PromiseCheckoutJobRunResponse = Promise<
+  JobRunResponse<DataErrorCheckoutTypes, FunctionErrorCheckoutTypes>
+>;
 
 export class CheckoutJobs {
   private apolloClientManager: ApolloClientManager;
