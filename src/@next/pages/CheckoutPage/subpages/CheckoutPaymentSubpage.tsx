@@ -10,7 +10,7 @@ import React, {
 import { RouteComponentProps, useHistory } from "react-router";
 
 import { CheckoutPayment } from "@components/organisms";
-import { useCart, useCheckout, useUserDetails } from "@sdk/react";
+import { useAuth, useCart, useCheckout } from "@sdk/react";
 import { ShopContext } from "@temp/components/ShopProvider/context";
 import { CHECKOUT_STEPS } from "@temp/core/config";
 import { IAddress, ICardData, IFormError } from "@types";
@@ -40,7 +40,7 @@ const CheckoutPaymentSubpageWithRef: RefForwardingComponent<
   ref
 ) => {
   const history = useHistory();
-  const { data: user } = useUserDetails();
+  const { user } = useAuth();
   const {
     checkout,
     billingAsShipping,

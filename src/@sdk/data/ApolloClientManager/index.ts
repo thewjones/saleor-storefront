@@ -107,6 +107,26 @@ export class ApolloClientManager {
       TokenAuthVariables
     >({
       mutation: AuthMutations.tokenAuthMutation,
+      update: (store, { data }) => {
+        let storeData: UserDetails | null = null;
+        try {
+          storeData = store.readQuery<UserDetails>({
+            query: UserQueries.getUserDetailsQuery,
+          });
+        } catch (e) {
+          // https://github.com/apollographql/apollo-feature-requests/issues/1
+        }
+
+        const updateDataMe = { ...storeData?.me, ...data?.tokenCreate?.user };
+
+        store.writeQuery({
+          data: {
+            ...storeData,
+            me: updateDataMe,
+          },
+          query: UserQueries.getUserDetailsQuery,
+        });
+      },
       variables: {
         email,
         password,
@@ -117,7 +137,7 @@ export class ApolloClientManager {
       return {
         error: errors,
       };
-    } else if (data?.tokenCreate?.accountErrors) {
+    } else if (data?.tokenCreate?.accountErrors.length) {
       return {
         error: data.tokenCreate.accountErrors,
       };
@@ -138,7 +158,6 @@ export class ApolloClientManager {
   getCheckout = async (checkoutToken: string | null) => {
     let checkout: Checkout | null;
     try {
-      console.log("g");
       checkout = await new Promise((resolve, reject) => {
         if (this.isLoggedIn()) {
           const observable = this.client.watchQuery<UserCheckoutDetails, any>({
@@ -147,7 +166,6 @@ export class ApolloClientManager {
           });
           observable.subscribe(
             result => {
-              console.log("e", result);
               const { data, errors } = result;
               if (errors?.length) {
                 reject(errors);

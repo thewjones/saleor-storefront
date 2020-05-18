@@ -1,4 +1,3 @@
-import ApolloClient from "apollo-client";
 import { round } from "lodash";
 
 import { DataErrorCheckoutTypes } from "../api/Checkout/types";
@@ -29,17 +28,14 @@ export class SaleorState extends NamedObservable<StateItems>
   availablePaymentGateways?: GetShopPaymentGateways_shop_availablePaymentGateways[];
 
   private localStorageHandler: LocalStorageHandler;
-  private apolloClient: ApolloClient<any>;
   private apolloClientManager: ApolloClientManager;
 
   constructor(
     localStorageHandler: LocalStorageHandler,
-    apolloClient: ApolloClient<any>,
     apolloClientManager: ApolloClientManager
   ) {
     super();
     this.localStorageHandler = localStorageHandler;
-    this.apolloClient = apolloClient;
     this.apolloClientManager = apolloClientManager;
 
     this.localStorageHandler.subscribeToChange(

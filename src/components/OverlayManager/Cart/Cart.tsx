@@ -5,7 +5,7 @@ import { generatePath, Link } from "react-router-dom";
 import ReactSVG from "react-svg";
 
 import { TaxedMoney } from "@components/containers";
-import { useCart, useCheckout, useUserDetails } from "@sdk/react";
+import { useAuth, useCart, useCheckout } from "@sdk/react";
 
 import {
   Button,
@@ -23,7 +23,7 @@ import cartImg from "../../../images/cart.svg";
 import closeImg from "../../../images/x.svg";
 
 const Cart: React.FC<{ overlay: OverlayContextInterface }> = ({ overlay }) => {
-  const { data: user } = useUserDetails();
+  const { user } = useAuth();
   const { checkout } = useCheckout();
   const {
     items,

@@ -2,7 +2,7 @@ import "./scss/index.scss";
 
 import * as React from "react";
 
-import { useSignIn } from "@sdk/react";
+import { useAuth } from "@sdk/react";
 import { maybe } from "@utils/misc";
 
 import { Button, Form, TextField } from "..";
@@ -12,22 +12,26 @@ interface ILoginForm {
 }
 
 const LoginForm: React.FC<ILoginForm> = ({ hide }) => {
-  const [signIn, { loading, error }] = useSignIn();
+  const { signIn } = useAuth();
+  const [loading, setLoading] = React.useState(false);
+  const [errors, setErrors] = React.useState(null);
 
   const handleOnSubmit = async (evt, { email, password }) => {
     evt.preventDefault();
-    const authenticated = await signIn({ email, password });
-    if (authenticated && hide) {
+    setLoading(true);
+    const { data, dataError } = await signIn(email, password);
+    setLoading(false);
+    if (dataError?.error) {
+      setErrors(dataError.error);
+    } else if (data && hide) {
+      setErrors(null);
       hide();
     }
   };
 
   return (
     <div className="login-form">
-      <Form
-        errors={maybe(() => error.extraInfo.userInputErrors, [])}
-        onSubmit={handleOnSubmit}
-      >
+      <Form errors={maybe(() => errors, [])} onSubmit={handleOnSubmit}>
         <TextField
           name="email"
           autoComplete="email"

@@ -8,7 +8,7 @@ import { CartRow } from "@components/organisms";
 import { Cart, CartEmpty } from "@components/templates";
 import { IItems } from "@sdk/api/Cart/types";
 import { UserDetails_me } from "@sdk/queries/gqlTypes/UserDetails";
-import { useCart, useCheckout, useUser, useUserDetails } from "@sdk/react";
+import { useAuth, useCart, useCheckout } from "@sdk/react";
 import { BASE_URL } from "@temp/core/config";
 import { ITaxedMoney } from "@types";
 
@@ -25,7 +25,7 @@ const getShoppingButton = (history: History) => (
   </Button>
 );
 
-const getCheckoutButton = (history: History, user: UserDetails_me | null) => (
+const getCheckoutButton = (history: History, user?: UserDetails_me | null) => (
   <Button
     data-cy="cartPageBtnProceedToCheckout"
     onClick={() => history.push(user ? `/checkout/` : `/login/`)}
@@ -122,9 +122,8 @@ const generateCart = (
 
 export const CartPage: React.FC<IProps> = ({}: IProps) => {
   const history = useHistory();
-  const { data: user } = useUserDetails();
-  const newUser = useUser();
-  console.log(newUser);
+  const { user } = useAuth();
+  console.log(user);
   const { checkout } = useCheckout();
   const {
     loaded,
