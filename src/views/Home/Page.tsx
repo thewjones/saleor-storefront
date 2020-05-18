@@ -75,7 +75,14 @@ const Page: React.FC<{
               </Link>
             )
           )}
+=======
+              <h1>LET YOUR CAR GO</h1>
+            </span>
+          </div>
+          
+>>>>>>> CSS and template customisations
         </div>
+        
       </div>
       <ProductsFeatured
         title={intl.formatMessage({ defaultMessage: "Featured" })}
