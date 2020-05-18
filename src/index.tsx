@@ -22,6 +22,7 @@ import { ApolloProvider } from "react-apollo";
 import { render } from "react-dom";
 import { Route, Router } from "react-router-dom";
 import { QueryParamProvider } from "use-query-params";
+import TagManager from 'react-gtm-module'
 
 import { App } from "./app";
 import { apiUrl, serviceWorkerTimeout } from "./constants";
@@ -46,6 +47,8 @@ const cache = new InMemoryCache({
     return defaultDataIdFromObject(obj);
   },
 });
+
+TagManager.initialize({gtmId: 'GTM-666'})
 
 const startApp = async () => {
   await persistCache({
