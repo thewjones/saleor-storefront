@@ -2,7 +2,7 @@
 /* eslint-disable */
 // This file was automatically generated and should not be edited.
 
-import { AccountErrorCode } from "./../../../../types/globalTypes";
+import { AccountErrorCode } from "./../../gqlTypes/globalTypes";
 
 // ====================================================
 // GraphQL mutation operation: TokenAuth
@@ -182,7 +182,7 @@ export interface TokenAuth_tokenCreate {
 export interface TokenAuth {
   /**
    * Mutation that authenticates a user and returns token and user data.
-   * 
+   *
    * It overrides the default graphql_jwt.ObtainJSONWebToken to wrap potential
    * authentication errors in our Error type, which is consistent to how the rest of
    * the mutation works.

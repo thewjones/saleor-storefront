@@ -3,7 +3,7 @@ import { round } from "lodash";
 
 import { DataErrorCheckoutTypes } from "../api/Checkout/types";
 import { ApolloClientManager } from "../data/ApolloClientManager";
-import { User } from "../fragments/types/User";
+import { User } from "../fragments/gqlTypes/User";
 import { NamedObservable } from "../helpers";
 import {
   ICheckoutModel,

@@ -1,4 +1,4 @@
-import { User } from "../fragments/types/User";
+import { User } from "../fragments/gqlTypes/User";
 import {
   ICheckoutModel,
   ICheckoutModelPrice,
