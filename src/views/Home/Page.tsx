@@ -43,31 +43,12 @@ const Page: React.FC<{
         <div className="home-page__hero-text">
           <div>
             <span className="home-page__hero__title">
-              <h1>Final reduction</h1>
+              <h1>LET YOUR CAR GO</h1>
             </span>
           </div>
-          <div>
-            <span className="home-page__hero__title">
-              <h1>Up to 70% off sale</h1>
-            </span>
-          </div>
+          
         </div>
-        <div className="home-page__hero-action">
-          {loading && !categories ? (
-            <Loader />
-          ) : (
-            categoriesExist() && (
-              <Link
-                to={generateCategoryUrl(
-                  categories.edges[0].node.id,
-                  categories.edges[0].node.name
-                )}
-              >
-                <Button>Shop sale</Button>
-              </Link>
-            )
-          )}
-        </div>
+        
       </div>
       <ProductsFeatured />
       {categoriesExist() && (

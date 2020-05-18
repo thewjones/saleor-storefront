@@ -7,7 +7,7 @@
     background-size: cover;
     background-position: center;
     text-align: center;
-    padding: 12rem 0;
+    padding: 14rem 0;
 
     &-text {
       overflow: hidden;
@@ -33,7 +33,7 @@
     }
 
     &__title {
-      background-color: $white;
+      background-color: transparent;
       display: inline-block;
       transform: skew(45deg);
       padding: $spacer $spacer * 3;
@@ -49,9 +49,9 @@
         transform: skew(-45deg);
         font-weight: $bold-font-weight;
         text-transform: uppercase;
-        color: $blue;
+        color: white;
         font-size: $h1-font-size;
-        font-weight: 900;
+        font-weight: 200;
 
         @media (max-width: $small-screen) {
           font-size: $h4-font-size;
