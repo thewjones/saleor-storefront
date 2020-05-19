@@ -7,15 +7,33 @@ import { NamedObservable } from "../helpers";
 import {
   ICheckoutModel,
   IPaymentModel,
+  LocalStorageEvents,
   LocalStorageHandler,
   LocalStorageItems,
 } from "../helpers/LocalStorageHandler";
 import { GetShopPaymentGateways_shop_availablePaymentGateways } from "../queries/gqlTypes/GetShopPaymentGateways";
 import { ApolloErrorWithUserInput } from "../react/types";
-import { ISaleorState, ISaleorStateSummeryPrices, StateItems } from "./types";
+import { ISaleorStateSummeryPrices, StateItems } from "./types";
 
-export class SaleorState extends NamedObservable<StateItems>
-  implements ISaleorState {
+export interface SaleorStateLoaded {
+  user: boolean;
+  signInToken: boolean;
+  checkout: boolean;
+  payment: boolean;
+  paymentGateways: boolean;
+  summaryPrices: boolean;
+}
+
+const defaultSaleorStateLoaded = {
+  checkout: false,
+  payment: false,
+  paymentGateways: false,
+  signInToken: false,
+  summaryPrices: false,
+  user: false,
+};
+
+export class SaleorState extends NamedObservable<StateItems> {
   user?: User | null;
   signInToken?: string | null;
   checkout?: ICheckoutModel;
@@ -26,6 +44,8 @@ export class SaleorState extends NamedObservable<StateItems>
   summaryPrices?: ISaleorStateSummeryPrices;
   // Should be changed it in future to shop object containing payment gateways besides all the shop data
   availablePaymentGateways?: GetShopPaymentGateways_shop_availablePaymentGateways[];
+
+  loaded: SaleorStateLoaded;
 
   private localStorageHandler: LocalStorageHandler;
   private apolloClientManager: ApolloClientManager;
@@ -38,6 +58,12 @@ export class SaleorState extends NamedObservable<StateItems>
     this.localStorageHandler = localStorageHandler;
     this.apolloClientManager = apolloClientManager;
 
+    this.loaded = defaultSaleorStateLoaded;
+
+    this.initState();
+  }
+
+  private initState = async () => {
     this.localStorageHandler.subscribeToChange(
       LocalStorageItems.CHECKOUT,
       this.onCheckoutUpdate
@@ -50,16 +76,35 @@ export class SaleorState extends NamedObservable<StateItems>
       LocalStorageItems.TOKEN,
       this.onSignInTokenUpdate
     );
-    this.apolloClientManager.watchUser(value =>
-      this.onUserUpdate(value.data.me)
+    this.localStorageHandler.subscribeToChange(
+      LocalStorageEvents.CLEAR,
+      this.onClearLocalStorage
     );
-  }
 
-  provideSignInToken = () => {
-    this.onSignInTokenUpdate(this.localStorageHandler.getSignInToken());
+    this.provideSignInToken();
+    this.apolloClientManager.watchUser(value => {
+      this.onUserUpdate(value.data?.me);
+    });
+    await this.provideCheckout(() => null, true);
+    await this.providePayment(true);
+    await this.providePaymentGateways(() => null);
   };
 
-  provideCheckout = async (
+  private provideSignInToken = () => {
+    this.onSignInTokenUpdate(this.localStorageHandler.getSignInToken());
+  };
+  // private provideUser = async () => {
+  //   const result = await this.apolloClientManager.getUser();
+  //   // const res = await result.refetch();
+  //   console.log("r", result);
+
+  //   // if (error) {
+  //   //   // onError(error, DataErrorCheckoutTypes.GET_CHECKOUT);
+  //   // } else if (data) {
+  //   // this.onUserUpdate(data.me);
+  //   // }
+  // };
+  private provideCheckout = async (
     onError: (
       error: ApolloErrorWithUserInput | any,
       type: DataErrorCheckoutTypes
@@ -78,14 +123,12 @@ export class SaleorState extends NamedObservable<StateItems>
 
     return;
   };
-
-  providePayment = async (forceReload?: boolean) => {
+  private providePayment = async (forceReload?: boolean) => {
     this.providePaymentOffline(forceReload);
 
     return;
   };
-
-  providePaymentGateways = async (
+  private providePaymentGateways = async (
     onError: (
       error: ApolloErrorWithUserInput | any,
       type: DataErrorCheckoutTypes
@@ -94,23 +137,50 @@ export class SaleorState extends NamedObservable<StateItems>
     await this.providePaymentGatewaysOnline(onError);
   };
 
+  private onLoadedUpdate = (newLoaded: Partial<SaleorStateLoaded>) => {
+    this.loaded = {
+      ...this.loaded,
+      ...newLoaded,
+    };
+    this.notifyChange(StateItems.LOADED, this.loaded);
+  };
+  private onClearLocalStorage = () => {
+    this.onSignInTokenUpdate(null);
+    this.onUserUpdate(null);
+    this.onCheckoutUpdate();
+    this.onPaymentUpdate();
+  };
+
   private onSignInTokenUpdate = (token: string | null) => {
     this.signInToken = token;
     this.notifyChange(StateItems.SIGN_IN_TOKEN, this.signInToken);
+    this.onLoadedUpdate({
+      signInToken: true,
+    });
   };
   private onUserUpdate = (user: User | null) => {
     this.user = user;
     this.notifyChange(StateItems.USER, this.user);
+    this.onLoadedUpdate({
+      user: true,
+    });
   };
-  private onCheckoutUpdate = (checkout: ICheckoutModel) => {
+  private onCheckoutUpdate = (checkout?: ICheckoutModel) => {
     this.checkout = checkout;
     this.summaryPrices = this.calculateSummaryPrices(checkout);
     this.notifyChange(StateItems.CHECKOUT, this.checkout);
     this.notifyChange(StateItems.SUMMARY_PRICES, this.summaryPrices);
+    this.onLoadedUpdate({
+      checkout: true,
+      summaryPrices: true,
+    });
   };
-  private onPaymentUpdate = (payment: IPaymentModel) => {
+  private onPaymentUpdate = (payment?: IPaymentModel) => {
     this.payment = payment;
     this.notifyChange(StateItems.PAYMENT, this.payment);
+    this.onLoadedUpdate({
+      payment: true,
+    });
   };
   private onPaymentGatewaysUpdate = (
     paymentGateways?: GetShopPaymentGateways_shop_availablePaymentGateways[]
@@ -120,6 +190,9 @@ export class SaleorState extends NamedObservable<StateItems>
       StateItems.PAYMENT_GATEWAYS,
       this.availablePaymentGateways
     );
+    this.onLoadedUpdate({
+      paymentGateways: true,
+    });
   };
 
   private isCheckoutCreatedOnline = () => this.checkout?.id;
@@ -133,18 +206,21 @@ export class SaleorState extends NamedObservable<StateItems>
     // 1. Try to take checkout from backend database
     const checkout = this.localStorageHandler.getCheckout();
 
-    if (checkout?.token) {
-      const { data, error } = await this.apolloClientManager.getCheckout(
-        checkout?.token
-      );
+    // if (checkout?.token) {
+    const { data, error } = await this.apolloClientManager.getCheckout(
+      !!this.user,
+      checkout?.token
+    );
 
-      if (error) {
-        onError(error, DataErrorCheckoutTypes.GET_CHECKOUT);
-      } else if (data) {
-        this.localStorageHandler.setCheckout(data);
-        return;
-      }
+    console.log("er", data, error);
+
+    if (error) {
+      onError(error, DataErrorCheckoutTypes.GET_CHECKOUT);
+    } else if (data) {
+      this.localStorageHandler.setCheckout(data);
+      return;
     }
+    // }
 
     // 2. Try to take checkout from local storage
     const checkoutModel: ICheckoutModel | null = this.localStorageHandler.getCheckout();

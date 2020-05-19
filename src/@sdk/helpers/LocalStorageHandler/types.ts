@@ -11,6 +11,9 @@ export enum LocalStorageItems {
   CHECKOUT = "data_checkout",
   PAYMENT = "data_payment",
 }
+export enum LocalStorageEvents {
+  CLEAR = "clear",
+}
 
 export interface ICheckoutModelLineTotalPrice {
   gross: ICheckoutModelPriceValue;

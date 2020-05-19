@@ -82,10 +82,23 @@ export class ApolloClientManager {
   }
 
   watchUser = (
+    // callback: (newData: any) => void,
     next: (value: ApolloQueryResult<UserDetails>) => void,
     error?: (error: any) => void,
     complete?: () => void
   ) => {
+    /**
+     * I would like to make this working, but Apollo docs cover these methods, thus its hard to use it
+     */
+    // this.client.store.getCache().watch({
+    //   callback: next,
+    //   optimistic: false,
+    //   query: UserQueries.getUserDetailsQuery,
+    // });
+    // .subscribe({
+    //   fetchPolicy: "cache-only",
+    //   query: UserQueries.getUserDetailsQuery,
+    // })
     this.client
       .watchQuery<UserDetails, any>({
         fetchPolicy: "cache-only",
@@ -94,12 +107,15 @@ export class ApolloClientManager {
       .subscribe(next, error, complete);
   };
 
-  getUser = () => {
-    return this.client.query<UserDetails, any>({
-      fetchPolicy: "network-only",
-      query: UserQueries.getUserDetailsQuery,
-    });
-  };
+  /**
+   * It doesn't work, because Apollo docs cover only 20% of Apollo client
+   */
+  // getUser = async () => {
+  //   return this.client.query<UserDetails, any>({
+  //     fetchPolicy: "network-only",
+  //     query: UserQueries.getUserDetailsQuery,
+  //   });
+  // };
 
   signIn = async (email: string, password: string) => {
     const { data, errors } = await this.client.mutate<
@@ -155,11 +171,14 @@ export class ApolloClientManager {
     await this.client.resetStore();
   };
 
-  getCheckout = async (checkoutToken: string | null) => {
+  getCheckout = async (
+    isUserSignedIn: boolean,
+    checkoutToken: string | null
+  ) => {
     let checkout: Checkout | null;
     try {
       checkout = await new Promise((resolve, reject) => {
-        if (this.isLoggedIn()) {
+        if (isUserSignedIn) {
           const observable = this.client.watchQuery<UserCheckoutDetails, any>({
             fetchPolicy: "network-only",
             query: CheckoutQueries.userCheckoutDetails,
@@ -856,10 +875,6 @@ export class ApolloClientManager {
         error,
       };
     }
-  };
-
-  private isLoggedIn = () => {
-    return !!getAuthToken();
   };
 
   private constructCheckoutModel = ({

@@ -1,12 +1,19 @@
 import { NamedObservable } from "../NamedObservable";
-import { ICheckoutModel, IPaymentModel, LocalStorageItems } from "./types";
+import {
+  ICheckoutModel,
+  IPaymentModel,
+  LocalStorageEvents,
+  LocalStorageItems,
+} from "./types";
 
 /**
  * Sets or removes data from local storage in one of the specified data format.
  * If data is set to null, then it is removed from local storage.
  * If needed, it stringify data for persistance in local storage or parse such data to be retrieved in desired format.
  */
-class LocalStorageHandlerProxy extends NamedObservable<LocalStorageItems> {
+class LocalStorageHandlerProxy extends NamedObservable<
+  LocalStorageItems | LocalStorageEvents
+> {
   /**
    * Save string item to local storage.
    * @param name Unique key by which item is identified.
@@ -58,6 +65,7 @@ class LocalStorageHandlerProxy extends NamedObservable<LocalStorageItems> {
   }
   protected clearStorage(): void {
     localStorage.clear();
+    this.notifyChange(LocalStorageEvents.CLEAR, undefined);
   }
 }
 

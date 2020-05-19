@@ -3,7 +3,7 @@ import { ErrorListener } from "@sdk/helpers";
 import { ICheckoutModel } from "@sdk/helpers/LocalStorageHandler";
 import { JobsManager } from "@sdk/jobs";
 import { ErrorCartTypes } from "@sdk/jobs/Cart";
-import { SaleorState } from "@sdk/state";
+import { SaleorState, SaleorStateLoaded } from "@sdk/state";
 import { ISaleorStateSummeryPrices, StateItems } from "@sdk/state/types";
 import { ApolloClientManager } from "@temp/@sdk/data/ApolloClientManager";
 
@@ -22,9 +22,6 @@ export class SaleorCartAPI extends ErrorListener {
   subtotalPrice: ISubtotalPrice;
   shippingPrice: IShippingPrice;
   discount?: IDiscount;
-
-  private checkoutLoaded: boolean;
-  private summaryPricesLoaded: boolean;
 
   private localStorageManager: LocalStorageManager;
   private saleorState: SaleorState;
@@ -45,15 +42,13 @@ export class SaleorCartAPI extends ErrorListener {
     this.jobsManager = jobsManager;
 
     this.loaded = false;
-    this.checkoutLoaded = false;
-    this.summaryPricesLoaded = false;
 
     this.jobsManager.attachErrorListener("cart", this.fireError);
 
     this.saleorState.subscribeToChange(
       StateItems.CHECKOUT,
-      ({ lines }: ICheckoutModel) => {
-        this.items = lines
+      (checkout: ICheckoutModel) => {
+        this.items = checkout?.lines
           ?.filter(line => line.quantity > 0)
           .sort((a, b) => {
             if (a.id && b.id) {
@@ -66,41 +61,40 @@ export class SaleorCartAPI extends ErrorListener {
               return aId < bId ? -1 : aId > bId ? 1 : 0;
             }
           });
-        this.checkoutLoaded = true;
-        this.loaded = this.checkoutLoaded && this.summaryPricesLoaded;
       }
     );
     this.saleorState.subscribeToChange(
       StateItems.SUMMARY_PRICES,
-      ({
-        totalPrice,
-        subtotalPrice,
-        shippingPrice,
-        discount,
-      }: ISaleorStateSummeryPrices) => {
+      (summaryPrices: ISaleorStateSummeryPrices) => {
+        const { totalPrice, subtotalPrice, shippingPrice, discount } =
+          summaryPrices || {};
         this.totalPrice = totalPrice;
         this.subtotalPrice = subtotalPrice;
         this.shippingPrice = shippingPrice;
         this.discount = discount;
-        this.summaryPricesLoaded = true;
-        this.loaded = this.summaryPricesLoaded && this.checkoutLoaded;
+      }
+    );
+    this.saleorState.subscribeToChange(
+      StateItems.LOADED,
+      (loaded: SaleorStateLoaded) => {
+        this.loaded = loaded.checkout && loaded.summaryPrices;
       }
     );
 
-    if (loadOnStart) {
-      this.load();
-    }
+    // if (loadOnStart) {
+    //   this.load();
+    // }
   }
 
-  load = async () => {
-    await this.saleorState.provideCheckout(this.fireError, true);
-    return {
-      pending: false,
-    };
-  };
+  // load = async () => {
+  //   await this.saleorState.provideCheckout(this.fireError, true);
+  //   return {
+  //     pending: false,
+  //   };
+  // };
 
   addItem = async (variantId: string, quantity: number) => {
-    await this.saleorState.provideCheckout(this.fireError);
+    // await this.saleorState.provideCheckout(this.fireError);
 
     // 1. save in local storage
     this.localStorageManager.addItemToCart(variantId, quantity);
@@ -135,7 +129,7 @@ export class SaleorCartAPI extends ErrorListener {
   };
 
   removeItem = async (variantId: string) => {
-    await this.saleorState.provideCheckout(this.fireError);
+    // await this.saleorState.provideCheckout(this.fireError);
 
     // 1. save in local storage
     this.localStorageManager.removeItemFromCart(variantId);
@@ -169,7 +163,7 @@ export class SaleorCartAPI extends ErrorListener {
   };
 
   subtractItem = async (variantId: string) => {
-    await this.saleorState.provideCheckout(this.fireError);
+    // await this.saleorState.provideCheckout(this.fireError);
 
     // 1. save in local storage
     this.localStorageManager.subtractItemFromCart(variantId);
@@ -204,7 +198,7 @@ export class SaleorCartAPI extends ErrorListener {
   };
 
   updateItem = async (variantId: string, quantity: number) => {
-    await this.saleorState.provideCheckout(this.fireError);
+    // await this.saleorState.provideCheckout(this.fireError);
 
     // 1. save in local storage
     this.localStorageManager.updateItemInCart(variantId, quantity);
