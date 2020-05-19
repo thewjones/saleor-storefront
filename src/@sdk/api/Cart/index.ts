@@ -10,13 +10,12 @@ import { ApolloClientManager } from "@temp/@sdk/data/ApolloClientManager";
 import {
   IDiscount,
   IItems,
-  ISaleorCartAPI,
   IShippingPrice,
   ISubtotalPrice,
   ITotalPrice,
 } from "./types";
 
-export class SaleorCartAPI extends ErrorListener implements ISaleorCartAPI {
+export class SaleorCartAPI extends ErrorListener {
   loaded: boolean;
   items: IItems;
   totalPrice: ITotalPrice;

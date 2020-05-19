@@ -18,11 +18,9 @@ import {
   ICreditCard,
   IPayment,
   IPromoCodeDiscount,
-  ISaleorCheckoutAPI,
 } from "./types";
 
-export class SaleorCheckoutAPI extends ErrorListener
-  implements ISaleorCheckoutAPI {
+export class SaleorCheckoutAPI extends ErrorListener {
   loaded: boolean;
   checkout?: ICheckout;
   promoCodeDiscount?: IPromoCodeDiscount;

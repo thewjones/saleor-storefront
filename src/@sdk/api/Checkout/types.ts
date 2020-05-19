@@ -6,8 +6,6 @@ import {
 } from "@sdk/helpers/LocalStorageHandler";
 import { GetShopPaymentGateways_shop_availablePaymentGateways } from "@sdk/queries/gqlTypes/GetShopPaymentGateways";
 
-import { PromiseQueuedResponse, PromiseRunResponse } from "../types";
-
 export type IPrice = ICheckoutModelPrice | null | undefined;
 export type IPriceValue = ICheckoutModelPriceValue | null | undefined;
 
@@ -75,47 +73,4 @@ export enum DataErrorCheckoutTypes {
   "COMPLETE_CHECKOUT",
   "GET_CHECKOUT",
   "GET_PAYMENT_GATEWAYS",
-}
-
-export interface ISaleorCheckoutAPI {
-  loaded: boolean;
-  checkout?: ICheckout | null;
-  promoCodeDiscount?: IPromoCodeDiscount;
-  billingAsShipping?: boolean;
-  selectedShippingAddressId?: string;
-  selectedBillingAddressId?: string;
-  availableShippingMethods?: IAvailableShippingMethods;
-  availablePaymentGateways?: IAvailablePaymentGateways;
-  payment?: IPayment;
-  load: () => PromiseQueuedResponse;
-  setBillingAddress: (
-    billingAddress: IAddress,
-    email?: string
-  ) => PromiseRunResponse<DataErrorCheckoutTypes, FunctionErrorCheckoutTypes>;
-  setShippingAddress: (
-    shippingAddress: IAddress,
-    email: string
-  ) => PromiseRunResponse<DataErrorCheckoutTypes, FunctionErrorCheckoutTypes>;
-  setShippingMethod: (
-    shippingMethodId: string
-  ) => PromiseRunResponse<DataErrorCheckoutTypes, FunctionErrorCheckoutTypes>;
-  setBillingAsShippingAddress: () => PromiseRunResponse<
-    DataErrorCheckoutTypes,
-    FunctionErrorCheckoutTypes
-  >;
-  addPromoCode: (
-    promoCode: string
-  ) => PromiseRunResponse<DataErrorCheckoutTypes, FunctionErrorCheckoutTypes>;
-  removePromoCode: (
-    promoCode: string
-  ) => PromiseRunResponse<DataErrorCheckoutTypes, FunctionErrorCheckoutTypes>;
-  createPayment: (
-    gateway: string,
-    token: string,
-    creditCard?: ICreditCard
-  ) => PromiseRunResponse<DataErrorCheckoutTypes, FunctionErrorCheckoutTypes>;
-  completeCheckout: () => PromiseRunResponse<
-    DataErrorCheckoutTypes,
-    FunctionErrorCheckoutTypes
-  >;
 }
