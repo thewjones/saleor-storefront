@@ -1,13 +1,17 @@
 @import "../../../globalStyles/scss/variables.scss";
 
+#root>header {
+    margin:2rem;
+}
+
 .main-menu {
   align-items: center;
   align-items: stretch;
   background-color: $white;
-  border-bottom: 1px solid $gray-light;
+
   display: flex;
   flex-direction: row;
-  height: 7rem;
+  height: 3.5rem;
   position: relative;
 
   &__left {
