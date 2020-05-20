@@ -7,7 +7,7 @@
   border-bottom: 1px solid $gray-light;
   display: flex;
   flex-direction: row;
-  height: 3.55rem;
+  height: 7rem;
   position: relative;
 
   &__left {
@@ -42,10 +42,10 @@
     align-self: center;
 
     svg {
-      width: 4rem;
+      width: 10rem;
 
       @media (min-width: $small-screen) {
-        width: 6rem;
+        width: 25rem;
       }
     }
   }
