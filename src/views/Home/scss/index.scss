@@ -1,14 +1,15 @@
 @import "../../../globalStyles/scss/variables.scss";
 
 .home-page {
-  &__hero {
+    &__hero {
+        display:flex;
     background-color: $blue-overlay;
     background-blend-mode: multiply;
     background-size: cover;
     background-position: center;
     text-align: center;
     padding: 14rem 0;
-
+    height:40vw;
     &-text {
       overflow: hidden;
     }
@@ -34,10 +35,7 @@
 
     &__title {
       background-color: transparent;
-      display: inline-block;
-      transform: skew(45deg);
-      padding: $spacer $spacer * 3;
-      margin-bottom: $spacer / 2;
+      display:none;
 
       @media (max-width: $small-screen) {
         padding: 0.6rem $spacer;
@@ -45,8 +43,6 @@
       }
 
       h1 {
-        display: inline-block;
-        transform: skew(-45deg);
         font-weight: $bold-font-weight;
         text-transform: uppercase;
         color: white;
