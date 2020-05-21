@@ -10,6 +10,7 @@
   transition: 300ms;
   width: 100%;
   z-index: 2;
+  overflow:scroll;
 
   &--search,
   &--main-menu-nav {
