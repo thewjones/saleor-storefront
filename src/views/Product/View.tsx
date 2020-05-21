@@ -110,12 +110,15 @@ const PageWithQueryAttributes: React.FC<IProps> = props => {
 
 const View: React.FC<RouteComponentProps<{ id: string }>> = ({ match }) => {
   const { addItem, items } = useCart();
+  const { data: user } = useUserDetails();
 
   return (
     <TypedProductDetailsQuery
       loaderFull
       variables={{
         id: getGraphqlIdFromDBId(match.params.id, "Product"),
+        countryCode:
+          (user?.defaultShippingAddress?.country?.code as CountryCode) || null,
       }}
       errorPolicy="all"
       key={match.params.id}
