@@ -48,7 +48,7 @@ const MainMenu: React.FC = () => {
   return (
     <OverlayContext.Consumer>
       {overlayContext => (
-        <nav className="main-menu" id="header">
+        <nav className="main-menu container" id="header">
           <div className="main-menu__left">
             <TypedMainMenuQuery renderOnError displayLoader={false}>
               {({ data }) => {

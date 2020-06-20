@@ -14,7 +14,7 @@
 
   &--search,
   &--main-menu-nav {
-    top: 5.5rem;
+    top: 11rem;
   }
 
   &--search {
@@ -39,7 +39,7 @@
     position: fixed;
     background-color: $white;
     right: 0;
-    top: 0;
+    top: 5.3rem;
     height: 100%;
     animation: sidenavRightOpen 0.3s;
   }

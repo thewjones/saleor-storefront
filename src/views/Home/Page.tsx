@@ -42,57 +42,49 @@ const Page: React.FC<{
             : null
         }
       >
-        <div className="home-page__hero-text">
-          <div>
-            <span className="home-page__hero__title">
-              <h1>
-                <FormattedMessage defaultMessage="Final reduction" />
-              </h1>
-            </span>
-          </div>
-          <div>
-            <span className="home-page__hero__title">
-              <h1>
-                <FormattedMessage defaultMessage="Up to 70% off sale" />
-              </h1>
-            </span>
-          </div>
-        </div>
-        <div className="home-page__hero-action">
-          {loading && !categories ? (
-            <Loader />
-          ) : (
-            categoriesExist() && (
-              <Link
-                to={generateCategoryUrl(
-                  categories.edges[0].node.id,
-                  categories.edges[0].node.name
-                )}
-              >
-                <Button testingContext="homepageHeroActionButton">
-                  <FormattedMessage defaultMessage="Shop sale" />
-                </Button>
-              </Link>
-            )
-          )}
-=======
-              <h1>LET YOUR CAR GO</h1>
-            </span>
-          </div>
-          
->>>>>>> CSS and template customisations
-        </div>
-        
+
       </div>
-      <ProductsFeatured
-        title={intl.formatMessage({ defaultMessage: "Featured" })}
-      />
+      <div class="container">
+        <div className="home-page__featured">
+          <h2>One Bicycle. Many Options.</h2>
+          <ul className="home-page__collections">
+            <li class="basis"><article><h3>Basis</h3></article></li>
+            <li class="electric"><article><h3>Electric</h3></article></li>
+            <li class="business"><article><h3>Business</h3></article></li>
+            <li class="kids"><article><h3>Kids</h3></article></li>
+            <li class="touring"><article><h3>Touring</h3></article></li>
+            <li class="dogs"><article><h3>Canine Porteur</h3></article></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="home-page__featured home-page__featured--banner">
+
+        <div class="container">
+          <h2>Why Bullitt Cargo Bikes?</h2>
+
+          <ul className="home-page__benefits">
+            <li>High quality</li>
+            <li>Shape-shifting chassis</li>
+            <li>Light & nimble</li>
+            <li>Danish design</li>
+            <li>One size fits all</li>
+            <li>11 colour finishes</li>
+            <li>Safe & stable</li>
+            <li>Green machines</li>
+          </ul>
+
+        </div>
+      </div>
+
+
+
+
+
       {categoriesExist() && (
-        <div className="home-page__categories">
+        <div className="home-page__categories home-page__featured">
           <div className="container">
-            <h3>
-              <FormattedMessage defaultMessage="Shop by category" />
-            </h3>
+            <h2>Buy online</h2>
             <div className="home-page__categories__list">
               {categories.edges.map(({ node: category }) => (
                 <div key={category.id}>

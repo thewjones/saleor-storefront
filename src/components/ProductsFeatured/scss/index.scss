@@ -1,14 +1,18 @@
 @import "../../../globalStyles/scss/variables.scss";
 
 .products-featured {
-  padding: 2rem 0 4rem;
+  margin: 2rem 0 10rem;
 
-  h3 {
-    font-weight: $bold-font-weight;
-    margin-bottom: $spacer * 2;
-    text-transform: uppercase;
+  h2 {
+
+    margin: $spacer * 5 0;
+    color:$green;
     text-align:center;
     color:$gray-dark;
+  }
+
+  h3 {
+      color:$green;
   }
 
   a {

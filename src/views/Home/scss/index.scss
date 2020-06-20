@@ -44,7 +44,7 @@
 
       h1 {
         font-weight: $bold-font-weight;
-        text-transform: uppercase;
+
         color: white;
         font-size: $h1-font-size;
         font-weight: 200;
@@ -60,13 +60,98 @@
     }
   }
 
+    &__featured {
+        padding: 2rem 0 5rem;
+
+        h2 {
+            margin: $spacer * 5 0;
+
+            text-align:center;
+            color:$gray-dark;
+        }
+
+        h3 {
+            color:$green;
+        }
+
+
+        &--banner {
+            background:$mushroom;
+            h2 {
+                margin: $spacer * 5 0;
+                color:$green;
+                text-align:left;
+
+            }
+
+        }
+
+    }
+
+
+
+    &__collections {
+        width:100%;
+        display:flex;
+        flex-wrap:wrap;
+        li {
+            background: url("../../../images/no-photo.svg") no-repeat center;
+            background-size:auto;
+            align-items:flex-end;
+            justify-content:center;
+            display:flex;
+            flex-basis:33.33333%;
+            height:18rem;
+            margin:2% 0;
+            &.basis {
+                background-image:url('../../../images/illustrations/basis.svg');
+            }
+            &.electric {
+                background-image:url('../../../images/illustrations/electric.svg');
+            }
+            &.business {
+                background-image:url('../../../images/illustrations/business.svg');
+            }
+            &.kids {
+                background-image:url('../../../images/illustrations/kids.svg');
+            }
+            &.touring {
+                background-image:url('../../../images/illustrations/touring.svg');
+            }
+            &.dogs {
+                background-image:url('../../../images/illustrations/dogs.svg');
+            }
+        }
+        h3 {
+            display:block;
+            background:white;
+            width:100%;
+        }
+    }
+
+
+    &__benefits {
+
+        display:block;
+        width:80%;
+        column-width:25rem;
+        list-style:circle;
+        li {
+            line-height:2.5rem;
+            margin-left:2rem;
+            padding-left:1rem;
+            font-family:$header-font-family;
+            font-size:$h2-font-size;
+        }
+    }
+
+
   &__categories {
     margin-bottom: 2rem;
 
     h3 {
-      text-transform: uppercase;
-      font-weight: $bold-font-weight;
-      margin-bottom: 1rem;
+        margin-bottom: 1rem;
+        width:18rem;
     }
 
     &__list {
@@ -89,34 +174,45 @@
       }
 
       a {
-        text-decoration: none;
-        color: $base-font-color;
-
-        h3 {
-          text-transform: uppercase;
-          font-weight: $bold-font-weight;
-
-          &:after {
-            content: url("../../../images/carousel-arrow.svg");
-            display: inline-block;
-            transform: rotate(180deg);
-            margin-left: 1rem;
+          text-decoration: none;
+          color: $base-font-color;
+          position:relative;
+          display:block;
+          h3 {
+              position:absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%,-50%);
+              color:white;
+              text-align:center;
           }
-        }
       }
 
       &__image {
-        width: 100%;
-        height: 30rem;
-        background-size: cover;
-        background-position: center;
-        margin-bottom: 1rem;
+          width: 100%;
+          height: 30rem;
+          background-size: cover;
+          background-position: center;
+          margin-bottom: 1rem;
+          position:relative;
 
-        &--no-photo {
-          background-color: $turquoise-light;
-          background-repeat: no-repeat;
-          background-size: contain;
-        }
+          &:before {
+              content: "";
+              position: absolute;
+              top: 0;
+              left: 0;
+              height: 100%;
+              width: 100%;
+
+              background-color: rgba($dark-green,.8);
+              background-size: 100% 100%;
+          }
+
+          &--no-photo {
+              background-color: $turquoise-light;
+              background-repeat: no-repeat;
+              background-size: contain;
+          }
       }
     }
   }

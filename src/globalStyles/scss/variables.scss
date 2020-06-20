@@ -2,15 +2,18 @@
 $base-font-color: #323232;
 $black: #000;
 $blue-dark: #190c4e;
-$blue: #21125e;
-$gray-dark: #7d7d7d;
-$gray-light: #f6f6f6;
+$blue: #a7a09e;
+$gray-dark: #222;
+$gray-light: #f2eeed;
 $gray: #c4c4c4;
-$green: #3ed256;
+$dark-green:#083532;
+$green: #74ad20;
+$light-green: #e5eadd;
 $rose: #fe6e76;
-$turquoise-dark: #55c4b3;
-$turquoise-light: #f1f5f5;
-$turquoise: #51e9d2;
+$turquoise-dark: #74ad20;
+$turquoise-light: #74ad20;
+$turquoise: #74ad20;
+$mushroom: #dfd5d3;
 $white: #fff;
 $blue-overlay: rgba($blue, 0.15);
 $autofillColor: rgb(250, 255, 189);
@@ -19,13 +22,14 @@ $darkGreen: #06847b;
 
 // typography
 $base-font-family: "proxima-nova", sans-serif;
-$base-font-size: 1rem; // 16px
+$base-font-size: 1.2rem; // 16px
 $header-font-family: "p22-mackinac-pro", sans-serif;
 $small-font-size: 0.875rem; // 14px
 $base-line-height: 1.25rem; // 20px
 $h1-font-size: 5rem; // 64px
-$h1-line-height: 1;
-$h3-font-size: 1.5rem; // 24px
+$h1-line-height: 1.8rem;
+$h2-font-size: 1.8rem; // 24px
+$h3-font-size: 2rem; // 24px
 $h4-font-size: 1.125rem; // 18px
 $light-font-weight: 200;
 $bold-font-weight: 600;
