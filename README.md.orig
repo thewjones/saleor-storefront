@@ -55,8 +55,8 @@ To use the official stable release, checkout to a release tag:
 <<<<<<< HEAD
 $ git checkout 2.10.4
 =======
-$ git checkout 2.10.2
->>>>>>> Bump to 2.10.2
+$ git checkout 2.10.3
+>>>>>>> Bump version to 2.10.3
 ```
 
 See the list of all releases here: https://github.com/mirumee/saleor-storefront/releases/
