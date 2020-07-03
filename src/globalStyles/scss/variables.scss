@@ -51,7 +51,7 @@ $button-padding-small-screen: 0.9rem 1rem;
 $button-transition: 0.3s;
 $button-transform: skew(45deg);
 $button-content-transform: skew(-45deg);
-$button-text-transform: uppercase;
+$button-text-transform: none;
 $button-font-weight: $bold-font-weight;
 
 // input
@@ -70,13 +70,13 @@ $message-success-color: $green;
 $message-error-color: $rose;
 $message-neutral-color: $turquoise-dark;
 $message-border-left: 0.3rem solid $message-neutral-color;
-$message-title-transform: uppercase;
+$message-title-transform: none;
 $message-title-weight: $bold-font-weight;
 $message-title-margin: 0 $spacer * 1.5 0 0;
 $message-content-margin: $spacer 0 0;
 
 // product item
-$product-item-title-text-transform: uppercase;
+$product-item-title-text-transform: none;
 $product-item-title-font-weight: $bold-font-weight;
 $product-item-title-margin: $spacer / 2 0 0;
 $product-item-title-height: 2.5rem;

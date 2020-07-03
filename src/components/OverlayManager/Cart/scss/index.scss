@@ -41,8 +41,7 @@
         padding: 0 $spacer;
 
         p {
-          font-weight: $bold-font-weight;
-          text-transform: uppercase;
+
           line-height: 1.5;
         }
 
@@ -92,8 +91,7 @@
       display: flex;
       padding-bottom: $spacer;
       margin-bottom: $spacer;
-      text-transform: uppercase;
-      font-weight: $bold-font-weight;
+
       justify-content: space-between;
       border-bottom: 1px solid $gray;
     }
@@ -112,8 +110,7 @@
     padding: $spacer * 2 $spacer;
 
     h4 {
-      font-weight: $bold-font-weight;
-      text-transform: uppercase;
+
       margin-bottom: $spacer;
     }
 

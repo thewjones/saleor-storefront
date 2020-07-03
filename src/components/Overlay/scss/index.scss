@@ -14,7 +14,7 @@
 
   &--search,
   &--main-menu-nav {
-    top: 11rem;
+    top: 13rem;
   }
 
   &--search {
@@ -51,7 +51,6 @@
     font-weight: $bold-font-weight;
     height: 3.6rem;
     justify-content: space-between;
-    text-transform: uppercase;
 
     &-text {
       margin: 0 $spacer;

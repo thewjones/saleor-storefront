@@ -18,7 +18,8 @@ body {
 
   h1 {
       font-family: $header-font-family;
-    font-size: $h1-font-size;
+      font-size: $h1-font-size;
+      font-weight:normal;
     line-height: $h1-line-height;
   }
 
@@ -26,6 +27,7 @@ body {
       font-family: $header-font-family;
     font-size: $h2-font-size;
     line-height: 1.7rem;
+          font-weight:normal;
   }
 
 

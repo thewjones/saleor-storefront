@@ -3,8 +3,8 @@
 .home-page {
     &__hero {
         display:flex;
-    background-color: $blue-overlay;
-    background-blend-mode: multiply;
+    background-color: $light-green;
+
     background-size: cover;
     background-position: center;
     text-align: center;
@@ -64,7 +64,7 @@
         padding: 2rem 0 5rem;
 
         h2 {
-            margin: $spacer * 5 0;
+            margin: $spacer * 4 0;
 
             text-align:center;
             color:$gray-dark;
@@ -78,7 +78,7 @@
         &--banner {
             background:$mushroom;
             h2 {
-                margin: $spacer * 5 0;
+                margin: $spacer * 2 0;
                 color:$green;
                 text-align:left;
 
@@ -95,31 +95,34 @@
         display:flex;
         flex-wrap:wrap;
         li {
-            background: url("../../../images/no-photo.svg") no-repeat center;
-            background-size:auto;
-            align-items:flex-end;
-            justify-content:center;
-            display:flex;
-            flex-basis:33.33333%;
-            height:18rem;
-            margin:2% 0;
-            &.basis {
-                background-image:url('../../../images/illustrations/basis.svg');
-            }
-            &.electric {
-                background-image:url('../../../images/illustrations/electric.svg');
-            }
-            &.business {
-                background-image:url('../../../images/illustrations/business.svg');
-            }
-            &.kids {
-                background-image:url('../../../images/illustrations/kids.svg');
-            }
-            &.touring {
-                background-image:url('../../../images/illustrations/touring.svg');
-            }
-            &.dogs {
-                background-image:url('../../../images/illustrations/dogs.svg');
+                            flex-basis:33.33333%;
+            a {
+                height:13rem;
+                background: url("../../../images/no-photo.svg") no-repeat center;
+                background-size:auto;
+                align-items:flex-end;
+                justify-content:center;
+                display:flex;
+
+                margin:0 0 3rem;
+                &.basis {
+                    background-image:url('../../../images/illustrations/basis.svg');
+                }
+                &.electric {
+                    background-image:url('../../../images/illustrations/electric.svg');
+                }
+                &.business {
+                    background-image:url('../../../images/illustrations/business.svg');
+                }
+                &.kids {
+                    background-image:url('../../../images/illustrations/kids.svg');
+                }
+                &.touring {
+                    background-image:url('../../../images/illustrations/touring.svg');
+                }
+                &.dogs {
+                    background-image:url('../../../images/illustrations/dogs.svg');
+                }
             }
         }
         h3 {
@@ -133,12 +136,12 @@
     &__benefits {
 
         display:block;
-        width:80%;
-        column-width:25rem;
+        width:100%;
+        columns:2;
         list-style:circle;
         li {
             line-height:2.5rem;
-            margin-left:2rem;
+            margin:0 0 0.75rem 2rem;
             padding-left:1rem;
             font-family:$header-font-family;
             font-size:$h2-font-size;

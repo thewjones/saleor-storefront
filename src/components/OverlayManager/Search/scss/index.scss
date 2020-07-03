@@ -43,7 +43,8 @@ $drawer-width: 25rem;
       }
 
       &::placeholder {
-        text-transform: uppercase;
+
+
         font-size: $base-font-size;
         color: $black;
       }
@@ -88,7 +89,7 @@ $drawer-width: 25rem;
       }
 
       h4 {
-        text-transform: uppercase;
+
         font-weight: $bold-font-weight;
         padding: $spacer / 4 0;
         color: $base-font-color;

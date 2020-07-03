@@ -13,7 +13,7 @@
 
   display: flex;
   flex-direction: row;
-  height:9rem;
+  height:11rem;
   position: relative;
 
   &__left {
@@ -243,7 +243,7 @@
       border-top-width: 1px;
       display: none;
       left: 0;
-      padding: 2rem;
+      padding: 2rem 2rem 3rem;
       position: absolute;
       top: 100%;
       width: 100%;

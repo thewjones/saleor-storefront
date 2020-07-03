@@ -49,6 +49,7 @@ module.exports = ({ sourceDir, distDir }) => ({
         ],
       },
       {
+<<<<<<< HEAD
         test: /\.(gif|jpg|png|svg)$/,
         use: [
           {
@@ -68,6 +69,12 @@ module.exports = ({ sourceDir, distDir }) => ({
               mozjpeg: {
                 progressive: true,
                 quality: 85,
+=======
+        test: /\.(gif|jpg|png|svg|webp)$/,
+          use: [
+              {
+                  loader: "webp-loader?{quality: 100}",
+>>>>>>> Custom theme development
               },
               {
                   loader: "file-loader",
@@ -77,9 +84,29 @@ module.exports = ({ sourceDir, distDir }) => ({
                       publicPath: "/images/",
                   },
               },
+<<<<<<< HEAD
             },
           },
         ],
+=======
+              {
+                  loader: "image-webpack-loader",
+                  options: {
+                      mozjpeg: {
+                          progressive: true,
+                          quality: 85,
+                      },
+                      pngquant: {
+                          quality: "65-90",
+                          speed: 4,
+                      },
+                      gifsicle: {
+                          enabled: false,
+                      },
+                  },
+              },
+          ],
+>>>>>>> Custom theme development
       },
     ],
   },
