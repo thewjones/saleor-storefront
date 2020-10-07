@@ -17,6 +17,7 @@ import { structuredData } from "../../core/SEO/Homepage/structuredData";
 
 import noPhotoImg from "../../images/no-photo.svg";
 
+
 const Page: React.FC<{
   loading: boolean;
   categories: ProductsList_categories;

@@ -40,7 +40,7 @@ export const defaultTheme = {
       fontWeight: "600",
       lineHeight: "1.25rem",
       smallFontSize: "1rem",
-      textTransform: "uppercase",
+
     },
   },
   carousel: {
@@ -116,7 +116,7 @@ export const defaultTheme = {
     letterSpacing: "0.5px",
     padding: "1rem 1.5rem",
     titleMargin: `0 ${C.spacer * 1.5}rem 0 0`,
-    titleTransform: "uppercase",
+
     titleWeight: C.extraBoldFontWeight,
     width: "25rem",
   },
@@ -131,7 +131,7 @@ export const defaultTheme = {
     productItemTitleFontWeight: C.boldFontWeight,
     productItemTitleHeight: "2.5rem",
     productItemTitleMargin: `${C.spacer / 2}rem 0 0`,
-    productItemTitleTextTransform: "uppercase",
+
   },
   spacing: {
     /**

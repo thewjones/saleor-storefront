@@ -9,9 +9,8 @@ const textProps = css`
 
 export const Wrapper = styled.div`
   background: ${props => props.theme.colors.light};
-  padding: 2.5rem;
+  padding: 2rem;
   text-align: center;
-  max-height: 30rem;
   transition: 0.3s;
 
   :hover {
@@ -24,13 +23,16 @@ export const Wrapper = styled.div`
 `;
 
 export const Title = styled.h4`
-  text-transform: uppercase;
-  font-weight: normal;
+
+
   ${textProps}
+  text-align:center;
+   font-size:1.1em;
 `;
 
 export const Price = styled.p`
   ${textProps}
+  text-align:center;
 `;
 
 export const Image = styled.div`
@@ -39,8 +41,9 @@ export const Image = styled.div`
   max-width: 100%;
 
   > img {
-    width: auto;
+    max-width:255px;
+
     height: auto;
-    max-width: 100%;
+
   }
 `;

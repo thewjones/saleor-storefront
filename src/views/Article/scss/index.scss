@@ -4,7 +4,7 @@
   &__container {
     column-gap: $spacer * 1.5;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     margin: 60px 0;
 
     @media (max-width: $medium-screen) {
@@ -24,6 +24,7 @@
           font-weight:normal;
         color: $blue;
         font-size: 8vw;
+        text-align:center;
 
 
         @media (min-width: $small-screen) {
@@ -34,7 +35,7 @@
   }
 
   &__content {
-    grid-column-end: span 2;
+    grid-column-end: span 4;
 
     h1,
     h2,
@@ -141,18 +142,6 @@
         a {
           display: inline-block;
           position: relative;
-
-          &:before {
-            background-color: $turquoise;
-            content: "";
-            height: 7px;
-            left: 0;
-            position: absolute;
-            top: 6px;
-            transform: skew(45deg);
-            width: 100%;
-            z-index: -1;
-          }
         }
       }
     }

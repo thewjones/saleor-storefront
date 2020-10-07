@@ -2,7 +2,9 @@
 
 @import "./variables";
 @import "./utils";
+@import "./typebase";
 @import "./components";
+
 
 body {
   font-family: $base-font-family;
@@ -157,4 +159,9 @@ body {
 
 .form-error {
   color: $rose;
+}
+
+.footer-right {
+    margin-left:auto;
+    width:25%;
 }

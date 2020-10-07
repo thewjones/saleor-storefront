@@ -1,7 +1,8 @@
 @import "../../../globalStyles/scss/variables.scss";
 
 .product-list-item {
-  text-align: center;
+    text-align: center;
+
 
   &__title {
     text-transform: $product-item-title-text-transform;

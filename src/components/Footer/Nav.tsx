@@ -17,17 +17,27 @@ class Nav extends React.PureComponent {
                   <h4 className="footer-nav__section-header">
                     <NavLink item={item} />
                   </h4>
-                  <div className="footer-nav__section-content">
+                  <ul className="footer-nav__section-content">
                     {item.children.map(subItem => (
-                      <p key={subItem.id}>
-                        <NavLink item={subItem} />
-                      </p>
+                      <li key={subItem.id}><NavLink item={subItem} /></li>
                     ))}
-                  </div>
+                  </ul>
                 </div>
               ));
             }}
           </TypedSecondaryMenuQuery>
+           <div className="footer-nav__section footer-right">
+<h4 className="footer-nav__section-header">
+Contact</h4>
+                  <div className="footer-nav__section-content">
+                  <p>How can we help?<br/>
+                  Email: matt@shifteverything.cc<br/>
+                  Call: 07939 188943</p>
+                 <p>Shift Everything is a trading name of Clever Crow Cycleworks Ltd. Company number 123321331</p>
+                  </div>
+
+</div>
+
         </div>
       </footer>
     );

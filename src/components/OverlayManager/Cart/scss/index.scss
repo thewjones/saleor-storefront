@@ -29,11 +29,11 @@
       padding: $spacer 0;
       border-bottom: 1px solid $gray-light;
       display: flex;
-      align-content: stretch;
 
+    align-items: center;
       img {
-        max-width: 6.25rem;
-        height: 6.25rem;
+        max-width: 7.5rem;
+
       }
 
       &__details {

@@ -3,7 +3,8 @@
 #root>header {
     margin:0rem;
     padding-top:2rem;
-    background-color:$light-green;
+    //     background-color:$light-green;
+
 }
 
 .main-menu {
@@ -22,6 +23,7 @@
     display:flex;
     align-items:flex-end;
     width:100%;
+    margin-left:-1.5rem;
     @media (min-width: $small-screen) {
       flex-basis: calc(50% - 4rem);
     }
@@ -30,6 +32,7 @@
       display: flex;
       align-items: center;
       height: 4rem;
+      margin:0;
     }
   }
 
@@ -50,12 +53,13 @@
       display: flex;
       justify-content: flex-end;
       align-items: center;
+      margin:0;
     }
   }
 
   &__center {
     align-self: center;
-
+    margin-left:1.5rem;
     svg {
       width: 5rem;
 
@@ -243,12 +247,13 @@
       border-top-width: 1px;
       display: none;
       left: 0;
-      padding: 2rem 2rem 3rem;
+      padding: 2rem 1rem;
       position: absolute;
       top: 100%;
       width: 100%;
       z-index: 3;
-
+      height:15rem;
+margin-left: -0.5rem;
       &--visible {
         display: block;
       }
@@ -260,7 +265,7 @@
 
       > ul > li {
         align-self: flex-start;
-        margin-left: 2rem;
+        margin: 0rem 2rem 0 0.5rem;
         position: relative;
         width: 188px;
 
