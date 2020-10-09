@@ -17,6 +17,8 @@ import { structuredData } from "../../core/SEO/Homepage/structuredData";
 
 import noPhotoImg from "../../images/no-photo.svg";
 
+const { useEffect } = React;
+
 
 const Page: React.FC<{
   loading: boolean;
@@ -28,6 +30,17 @@ const Page: React.FC<{
     return categories && categories.edges && categories.edges.length > 0;
   };
   const intl = useIntl();
+
+useEffect(() => {
+    // Add a class to the body.
+    document.body.classList.add('home');
+
+    return () => {
+      // Remove the class from the body.
+      document.body.classList.remove('home');
+    };
+  }, ['fixed']);
+
 
   return (
     <>
@@ -49,7 +62,7 @@ const Page: React.FC<{
             <li><a href="#" className="business"><article><h3>Business</h3></article></a></li>
             <li><a href="#" className="electric"><article><h3>Electric</h3></article></a></li>
             <li><a href="#" className="touring"><article><h3>Touring</h3></article></a></li>
-            <li><a href="#" className="dogs"><article><h3>Canine Porteur</h3></article></a></li>
+            <li><a href="#" className="dogs"><article><h3>Dog transport</h3></article></a></li>
           </ul>
         </div>
       </div>
@@ -60,8 +73,8 @@ const Page: React.FC<{
           <h2>Why Bullitt Cargo Bikes?</h2>
 
           <ul className="home-page__benefits">
-            <li>Flexible cargo options that adapt with you, your family, your business</li>
-            <li>Lightest, most manoevreable cargo bike available</li>
+            <li>Flexible cargo options that adapt with you</li>
+            <li>Use standard bike parts anyone can service</li>
             <li>Beautiful, Danish design</li>
             <li>Built to fit riders of different sizes</li>
             <li>11 colour finishes</li>

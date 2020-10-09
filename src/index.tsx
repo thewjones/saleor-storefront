@@ -33,6 +33,8 @@ if (process.env.GTM_ID !== undefined) {
   TagManager.initialize({ gtmId: process.env.GTM_ID });
 }
 
+
+
 const startApp = async () => {
   if (sentryDsn !== undefined) {
     Sentry.init({

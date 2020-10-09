@@ -2,14 +2,16 @@
 
 .social-icon {
   padding: $spacer $spacer / 2;
-
+  fill: white;
   svg * {
-    transition: 0.3s;
+      transition: 0.3s;
+      fill:white;
+
   }
 
   &:hover {
     svg * {
-      fill: $turquoise;
+      fill: #74ad20;
     }
   }
 }

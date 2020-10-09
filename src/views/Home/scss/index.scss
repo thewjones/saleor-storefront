@@ -141,7 +141,7 @@
         list-style:circle;
         li {
             line-height:2.5rem;
-            margin:0 0 0.75rem 2rem;
+            margin:0 0 0 2rem;
             padding-left:1rem;
             font-family:$header-font-family;
             font-size:1.25em;
@@ -183,17 +183,18 @@
           display:block;
           h3 {
               position:absolute;
-              top: 50%;
+              top: 47%;
               left: 50%;
               transform: translate(-50%,-50%);
               color:white;
+              font-size:1.9rem;
               text-align:center;
           }
       }
 
       &__image {
           width: 100%;
-          height: 30rem;
+          height: 20rem;
           background-size: cover;
           background-position: center;
           margin-bottom: 1rem;
@@ -207,7 +208,7 @@
               height: 100%;
               width: 100%;
 
-              background-color: rgba($dark-green,.8);
+              background-color: rgba($dark-green,.85);
               background-size: 100% 100%;
           }
 

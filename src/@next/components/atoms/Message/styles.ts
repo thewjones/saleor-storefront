@@ -27,7 +27,6 @@ export const TopWrapper = styled.div`
 `;
 
 export const Title = styled.p`
-  text-transform: ${props => props.theme.message.titleTransform};
   font-weight: ${props => props.theme.message.titleWeight};
   letter-spacing: ${props => props.theme.message.letterSpacing};
   margin: ${props => props.theme.message.titleMargin};

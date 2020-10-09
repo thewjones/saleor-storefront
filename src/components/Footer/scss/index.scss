@@ -1,8 +1,8 @@
 @import "../../../globalStyles/scss/variables.scss";
 
 .footer {
+
   &__favicons {
-    border-top: 1px solid $gray-light;
     display: flex;
     justify-content: center;
   }
@@ -13,7 +13,9 @@
 
     .container {
       display: flex;
-      flex-wrap: wrap;
+      flex-wrap:no-wrap;
+
+
 
       div {
         &:not(:last-of-type) {
@@ -23,9 +25,12 @@
     }
 
     &-section {
+        flex-basis:25%;
       &-header {
         font-weight: $bold-font-weight;
         margin-bottom: $spacer;
+        color:white;
+
       }
 
       &-content {
@@ -33,11 +38,11 @@
           font-weight: $bold-font-weight;
           margin-bottom: $spacer;
           font-size: $small-font-size;
-          color: $gray-dark;
+          color: white;
 
           a {
             text-decoration: none;
-            color: $gray-dark;
+            color: white;
           }
         }
       }
@@ -45,38 +50,68 @@
   }
 
   &-nav {
-    background-color: $gray-light;
+    background-color: #0d3532;
     padding: $spacer * 3 0 $spacer * 2;
 
     .container {
       display: flex;
-      flex-wrap: wrap;
-
+      flex-wrap: no-wrap;
+      flex
       div:not(:last-of-type) {
         padding-right: $spacer * 3;
       }
     }
 
     &__section {
-      &-header {
-
-        margin-bottom: $spacer;
-
-      }
-
-      &-content {
-        p,li {
-
-          font-size: $small-font-size;
-          color: $gray-dark;
-
-          a {
-            text-decoration: none;
-            color: $gray-dark;
-          }
+        flex-basis:25%;
+        padding-right:4rem;
+        &-header {
+            color:white;
+            margin-bottom: $spacer;
+            >img {
+                width:100%;
+            }
         }
-        li {margin-bottom:0;}
-      }
+
+        &-content {
+            p,li {
+
+                font-size: $small-font-size;
+                color: white;
+
+                a {
+                    text-decoration: none;
+                    color: white;
+
+                }
+            }
+            li {margin-bottom:0.5em;}
+            form {
+                display:flex;
+                flex-wrap:wrap;
+                input {
+
+                    border:solid 1px white;
+                    color:white;
+                    padding:0.75rem;
+                    font-size:1.1rem;
+                    background:#0d3532;
+
+                    width:80%;
+                }
+                button {
+                    background:white;
+                    color:black;
+                    padding:0 0.5rem;
+
+                    flex-basis:10%;
+                }
+                .msg-alert {
+
+                    flex-basis: 100%;
+                }
+            }
+        }
     }
   }
 }
