@@ -7,8 +7,8 @@ import * as S from "./styles";
 import { IProps } from "./types";
 
 enum TABS {
-  DESCRIPTION,
-  ATTRIBUTES,
+  Description,
+  Specification,
 }
 
 export const ProductDescription: React.FC<IProps> = ({
@@ -16,45 +16,45 @@ export const ProductDescription: React.FC<IProps> = ({
   descriptionJson = "",
   attributes,
 }: IProps) => {
-  const [activeTab, setActiveTab] = React.useState<TABS>(TABS.DESCRIPTION);
+  const [activeTab, setActiveTab] = React.useState<TABS>(TABS.Description);
 
   return (
-    <S.Wrapper>
-      <S.Tabs>
-        <S.TabTitle
-          active={activeTab === TABS.DESCRIPTION}
-          onMouseEnter={evt => {
-            evt.stopPropagation();
-            setActiveTab(TABS.DESCRIPTION);
-          }}
-          onClick={evt => {
-            evt.stopPropagation();
-            setActiveTab(TABS.DESCRIPTION);
-          }}
-        >
-          <FormattedMessage defaultMessage="DESCRIPTION" />
+<S.Wrapper>
+<S.Tabs>
+<S.TabTitle
+  active={activeTab === TABS.Description}
+  onMouseEnter={evt => {
+    evt.stopPropagation();
+    setActiveTab(TABS.Description);
+  }}
+  onClick={evt => {
+    evt.stopPropagation();
+    setActiveTab(TABS.Description);
+  }}
+>
+          Description
         </S.TabTitle>
         <S.TabTitle
-          active={activeTab === TABS.ATTRIBUTES}
+          active={activeTab === TABS.Specification}
           onMouseEnter={evt => {
             evt.stopPropagation();
-            setActiveTab(TABS.ATTRIBUTES);
+            setActiveTab(TABS.Specification);
           }}
           onClick={evt => {
             evt.stopPropagation();
-            setActiveTab(TABS.ATTRIBUTES);
+            setActiveTab(TABS.Specification);
           }}
         >
-          <FormattedMessage defaultMessage="ATTRIBUTES" />
+          Specification
         </S.TabTitle>
       </S.Tabs>
-      {activeTab === TABS.DESCRIPTION &&
+      {activeTab === TABS.Description &&
         (descriptionJson ? (
           <RichTextContent descriptionJson={descriptionJson} />
         ) : (
           <p>{description}</p>
         ))}
-      {activeTab === TABS.ATTRIBUTES && (
+      {activeTab === TABS.Specification && (
         <S.AttributeList>
           {attributes &&
             attributes.map((attribute, index) => (

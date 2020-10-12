@@ -20,7 +20,7 @@ return (
               <img src={selogo}/></h4>
             <div className="footer-nav__section-content">
 
-              <p>&copy; All rights reserved<br/><strong>Clever Crow Cycleworks Ltd.</strong><br/> Company number 123321331</p>
+              <p>&copy; All rights reserved<br/><strong>Clever Crow Cycleworks Ltd.</strong><br/> Company number 12447535</p>
               <p>Designed by <a href="https://stridestudio.co.uk">Stride</a></p>
             </div>
 
