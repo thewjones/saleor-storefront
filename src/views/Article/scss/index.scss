@@ -4,7 +4,7 @@
   &__container {
     column-gap: $spacer * 1.5;
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(7, 1fr);
     margin: 60px 0;
 
     @media (max-width: $medium-screen) {
@@ -21,8 +21,8 @@
       padding: 1.5vw 9vw;
 
       h1 {
-          font-weight:normal;
-        color: $blue;
+          font-weight:700;
+        color: #6faf00;
         font-size: 8vw;
         text-align:center;
 
@@ -35,7 +35,8 @@
   }
 
   &__content {
-    grid-column-end: span 4;
+
+      grid-column: 2 / span 5;
 
     h1,
     h2,

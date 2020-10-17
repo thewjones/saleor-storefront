@@ -95,7 +95,11 @@
         display:flex;
         flex-wrap:wrap;
         li {
-                            flex-basis:33.33333%;
+            flex-basis:33.33333%;
+
+        @media (max-width: $small-screen) {
+            flex-basis:50%;
+        }
             a {
                 height:13rem;
                 background: url("../../../images/no-photo.svg") no-repeat center;
@@ -138,6 +142,9 @@
         display:block;
         width:100%;
         columns:2;
+        @media (max-width: $small-screen) {
+            columns:1;
+        }
         list-style:circle;
         li {
             line-height:2.5rem;

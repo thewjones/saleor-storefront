@@ -13,7 +13,10 @@
 
     .container {
       display: flex;
-      flex-wrap:no-wrap;
+ @media (max-width: $small-screen) {
+            flex-wrap:wrap;
+        }
+
 
 
 
@@ -26,6 +29,10 @@
 
     &-section {
         flex-basis:25%;
+        @media (max-width: $small-screen) {
+            flex-basis:100%;
+        }
+
       &-header {
         font-weight: $bold-font-weight;
         margin-bottom: $spacer;
@@ -55,15 +62,24 @@
 
     .container {
       display: flex;
-      flex-wrap: no-wrap;
-      flex
-      div:not(:last-of-type) {
+
+       @media (max-width: $small-screen) {
+            flex-wrap:wrap;
+        }
+
+
+      flex div:not(:last-of-type) {
         padding-right: $spacer * 3;
       }
     }
 
     &__section {
         flex-basis:25%;
+           @media (max-width: $small-screen) {
+               flex-basis:100%;
+               padding-right:0;
+        }
+
         padding-right:4rem;
         &-header {
             color:white;

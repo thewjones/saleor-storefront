@@ -89,7 +89,8 @@
 
     &--has-subnavigation,
     &--parent {
-      grid-template-columns: 1fr $item-height;
+        grid-template-columns: 1fr $item-height;
+        height:7rem;
     }
 
     &--parent {
