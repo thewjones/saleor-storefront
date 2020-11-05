@@ -113,7 +113,7 @@ export const Desktop = styled.ul`
 export const Button = styled.button`
   font-size: ${({ theme }) => theme.typography.baseFontSize};
   font-weight: ${({ theme }) => theme.typography.boldFontWeight};
-  text-transform: uppercase;
+
 
   &:hover {
     color: ${({ theme }) => theme.colors.primary};

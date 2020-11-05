@@ -96,7 +96,7 @@ export const Name = styled.p`
   font-weight: ${props => props.theme.typography.boldFontWeight};
   font-size: ${props => props.theme.typography.h4FontSize};
   text-align: left;
-  text-transform: uppercase;
+
   margin-bottom: 6px;
 `;
 

@@ -31,7 +31,7 @@ exports[`Storyshots @components/molecules/ProductTile default 1`] = `
 }
 
 .c2 {
-  text-transform: uppercase;
+  
   font-weight: normal;
   font-size: 1rem;
   margin: 0 0 0.5rem 0;

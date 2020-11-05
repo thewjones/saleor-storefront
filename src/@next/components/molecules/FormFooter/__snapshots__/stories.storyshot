@@ -51,7 +51,7 @@ exports[`Storyshots @components/molecules/FormFooter with submit and cancel butt
 .c4 {
   display: inline-block;
   font-size: 1rem;
-  text-transform: uppercase;
+
   font-weight: 600;
   line-height: 1.25rem;
 }
@@ -69,7 +69,7 @@ exports[`Storyshots @components/molecules/FormFooter with submit and cancel butt
   transform: none;
   -webkit-text-decoration: none;
   text-decoration: none;
-  text-transform: uppercase;
+
   padding: 0;
   -webkit-transition: color 0.3s ease;
   transition: color 0.3s ease;
@@ -187,7 +187,7 @@ exports[`Storyshots @components/molecules/FormFooter with submit button 1`] = `
 .c3 {
   display: inline-block;
   font-size: 1rem;
-  text-transform: uppercase;
+
   font-weight: 600;
   line-height: 1.25rem;
 }
@@ -290,7 +290,7 @@ exports[`Storyshots @components/molecules/FormFooter with top divider 1`] = `
 .c3 {
   display: inline-block;
   font-size: 1rem;
-  text-transform: uppercase;
+
   font-weight: 600;
   line-height: 1.25rem;
 }

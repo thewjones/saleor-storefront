@@ -21,7 +21,7 @@ body {
   h1 {
       font-family: $header-font-family;
       font-size: $h1-font-size;
-      font-weight:normal;
+      font-weight:700;
     line-height: $h1-line-height;
   }
 
@@ -29,7 +29,7 @@ body {
       font-family: $header-font-family;
     font-size: $h2-font-size;
     line-height: 1.7rem;
-          font-weight:normal;
+          font-weight:700;
   }
 
 
@@ -37,6 +37,8 @@ body {
         font-family: $header-font-family;
     font-size: $h3-font-size;
     line-height: 1.7rem;
+    font-weight:700;
+    margin-top:1.5rem;
   }
 
   h4 {

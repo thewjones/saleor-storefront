@@ -41,7 +41,7 @@ exports[`Storyshots @components/atoms/Message action card 1`] = `
 }
 
 .c3 {
-  text-transform: uppercase;
+
   font-weight: 800;
   -webkit-letter-spacing: 0.5px;
   -moz-letter-spacing: 0.5px;
@@ -142,7 +142,7 @@ exports[`Storyshots @components/atoms/Message action snackbar 1`] = `
 }
 
 .c3 {
-  text-transform: uppercase;
+
   font-weight: 800;
   -webkit-letter-spacing: 0.5px;
   -moz-letter-spacing: 0.5px;
@@ -229,7 +229,7 @@ exports[`Storyshots @components/atoms/Message error w/ children 1`] = `
 }
 
 .c3 {
-  text-transform: uppercase;
+
   font-weight: 800;
   -webkit-letter-spacing: 0.5px;
   -moz-letter-spacing: 0.5px;
@@ -339,7 +339,7 @@ exports[`Storyshots @components/atoms/Message neutral snackbar 1`] = `
 }
 
 .c3 {
-  text-transform: uppercase;
+
   font-weight: 800;
   -webkit-letter-spacing: 0.5px;
   -moz-letter-spacing: 0.5px;
@@ -440,7 +440,7 @@ exports[`Storyshots @components/atoms/Message success w/ children 1`] = `
 }
 
 .c3 {
-  text-transform: uppercase;
+
   font-weight: 800;
   -webkit-letter-spacing: 0.5px;
   -moz-letter-spacing: 0.5px;

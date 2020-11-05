@@ -62,7 +62,7 @@ useEffect(() => {
             <li><a href="/collection/business/5/" className="business"><article><h3>Business</h3></article></a></li>
             <li><a href="/product/ebullitt-business/62/" className="electric"><article><h3>Electric</h3></article></a></li>
             <li><a href="/collection/general-cargo/4/" className="touring"><article><h3>Touring</h3></article></a></li>
-            <li><a href="/collection/general-cargo/4/" className="dogs"><article><h3>Dog transport</h3></article></a></li>
+            <li><a href="/collection/general-cargo/4/" className="dogs"><article><h3>Dog transit</h3></article></a></li>
           </ul>
         </div>
       </div>

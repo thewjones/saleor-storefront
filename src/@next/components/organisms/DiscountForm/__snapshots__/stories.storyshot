@@ -51,7 +51,7 @@ exports[`Storyshots @components/organisms/DiscountForm default 1`] = `
 .c10 {
   display: inline-block;
   font-size: 1.125rem;
-  text-transform: uppercase;
+
   font-weight: 600;
   line-height: 1.25rem;
 }

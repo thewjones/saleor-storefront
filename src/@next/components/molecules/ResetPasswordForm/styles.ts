@@ -9,7 +9,7 @@ export const Wrapper = styled.div`
 
   h3 {
     font-weight: ${props => props.theme.typography.boldFontWeight};
-    text-transform: uppercase;
+
   }
 
   p {

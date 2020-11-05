@@ -85,7 +85,7 @@ exports[`Storyshots @components/organisms/ThankYou default 1`] = `
 .c7 {
   display: inline-block;
   font-size: 1.125rem;
-  text-transform: uppercase;
+  
   font-weight: 600;
   line-height: 1.25rem;
 }

@@ -62,7 +62,7 @@ exports[`Storyshots @components/atoms/AddNewTile default 1`] = `
 }
 
 .c3 {
-  text-transform: uppercase;
+  
   font-size: 1.125rem;
   text-align: center;
   vertical-align: center;

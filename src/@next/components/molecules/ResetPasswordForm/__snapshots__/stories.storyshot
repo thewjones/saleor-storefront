@@ -51,7 +51,7 @@ exports[`Storyshots @components/molecules/ResetPasswordForm default 1`] = `
 .c10 {
   display: inline-block;
   font-size: 1.125rem;
-  text-transform: uppercase;
+
   font-weight: 600;
   line-height: 1.25rem;
 }
@@ -145,7 +145,7 @@ exports[`Storyshots @components/molecules/ResetPasswordForm default 1`] = `
 
 .c1 h3 {
   font-weight: 600;
-  text-transform: uppercase;
+
 }
 
 .c1 p {

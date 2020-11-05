@@ -248,7 +248,7 @@ exports[`Storyshots @components/organisms/CartRow default 1`] = `
   font-weight: 600;
   font-size: 1.125rem;
   text-align: left;
-  text-transform: uppercase;
+  
   margin-bottom: 6px;
 }
 

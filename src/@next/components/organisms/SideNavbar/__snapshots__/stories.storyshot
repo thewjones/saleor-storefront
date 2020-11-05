@@ -20,7 +20,7 @@ exports[`Storyshots @components/organisms/SideNavbar default 1`] = `
 .c12 {
   position: relative;
   font-weight: 600;
-  text-transform: uppercase;
+
   -webkit-transition: 300ms;
   transition: 300ms;
   z-index: 0;
@@ -130,7 +130,7 @@ exports[`Storyshots @components/organisms/SideNavbar default 1`] = `
   align-items: center;
   outline: none;
   padding: 0 25px 0px 15px;
-  text-transform: uppercase;
+
   -webkit-transition: 300ms;
   transition: 300ms;
   height: 3.55rem;
@@ -168,7 +168,7 @@ exports[`Storyshots @components/organisms/SideNavbar default 1`] = `
   align-items: center;
   outline: none;
   padding: 0 25px 0px 15px;
-  text-transform: uppercase;
+
   -webkit-transition: 300ms;
   transition: 300ms;
   height: 3.55rem;
@@ -206,7 +206,7 @@ exports[`Storyshots @components/organisms/SideNavbar default 1`] = `
   align-items: center;
   outline: none;
   padding: 0 25px 0px 15px;
-  text-transform: uppercase;
+
   -webkit-transition: 300ms;
   transition: 300ms;
   height: 3.55rem;

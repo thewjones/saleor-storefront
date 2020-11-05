@@ -127,7 +127,7 @@ exports[`Storyshots @components/organisms/CheckoutPayment default 1`] = `
         className="c1"
         data-test="checkoutPageSubtitle"
       >
-        PAYMENT METHOD
+        Payment Method
       </h3>
       <div
         className="c2 c3"

@@ -20,7 +20,7 @@ exports[`Storyshots @components/organisms/TopNavbar default 1`] = `
 .c6 {
   position: relative;
   font-weight: 600;
-  text-transform: uppercase;
+
   -webkit-transition: 300ms;
   transition: 300ms;
   z-index: 0;
@@ -170,7 +170,7 @@ exports[`Storyshots @components/organisms/TopNavbar default 1`] = `
 .c5 {
   font-size: 1rem;
   font-weight: 600;
-  text-transform: uppercase;
+
 }
 
 .c5:hover {

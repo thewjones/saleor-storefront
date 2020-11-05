@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 export const Link = styled(NavLink)<{ fullWidth: boolean }>`
   position: relative;
   font-weight: ${({ theme }) => theme.typography.boldFontWeight};
-  text-transform: uppercase;
+  
   transition: 300ms;
   z-index: 0;
 

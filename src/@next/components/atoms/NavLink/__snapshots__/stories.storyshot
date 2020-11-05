@@ -20,7 +20,7 @@ exports[`Storyshots @components/atoms/NavLink default 1`] = `
 .c1 {
   position: relative;
   font-weight: 600;
-  text-transform: uppercase;
+
   -webkit-transition: 300ms;
   transition: 300ms;
   z-index: 0;

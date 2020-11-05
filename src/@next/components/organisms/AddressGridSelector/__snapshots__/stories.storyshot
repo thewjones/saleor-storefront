@@ -62,7 +62,7 @@ exports[`Storyshots @components/organisms/AddressGridSelector default 1`] = `
 }
 
 .c5 {
-  text-transform: uppercase;
+  
   font-size: 1.125rem;
   text-align: center;
   vertical-align: center;

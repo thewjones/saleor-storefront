@@ -65,7 +65,7 @@
 
         h2 {
             margin: $spacer * 4 0;
-
+            font-weight:normal;
             text-align:center;
             color:$gray-dark;
         }
@@ -81,6 +81,7 @@
                 margin: $spacer * 2 0;
                 color:$green;
                 text-align:left;
+                font-weight:700;
 
             }
 
@@ -103,7 +104,7 @@
             a {
                 height:13rem;
                 background: url("../../../images/no-photo.svg") no-repeat center;
-                background-size:auto;
+                background-size:80%;
                 align-items:flex-end;
                 justify-content:center;
                 display:flex;
@@ -133,12 +134,13 @@
             display:block;
             background:white;
             width:100%;
+            font-weight:normal;
+            font-size:$h2-font-size;
         }
     }
 
 
     &__benefits {
-
         display:block;
         width:100%;
         columns:2;
@@ -151,7 +153,7 @@
             margin:0 0 0 2rem;
             padding-left:1rem;
             font-family:$header-font-family;
-            font-size:1.25em;
+            font-size:$h3-font-size;
         }
     }
 
@@ -196,6 +198,7 @@
               color:white;
               font-size:1.9rem;
               text-align:center;
+              font-weight:normal;
           }
       }
 

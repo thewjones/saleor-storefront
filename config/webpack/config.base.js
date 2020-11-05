@@ -107,10 +107,15 @@ module.exports = ({ sourceDir, distDir }) => ({
     // PWA plugins
     new WebappWebpackPlugin({
       favicons: {
-        appDescription: "Storefront for the Saleor e-commerce platform",
-        appName: "Saleor",
-        background: "#ddd",
+        appName: "Shift Everything Cargo Bikes",
+        appDescription: "Shifting the future of transport",
+        display: "standalone",
         developerURL: null, // prevent retrieving from the nearest package.json
+        background: "#ddd",
+        theme_color: "#333",
+      },
+    }),
+    new webpack.EnvironmentPlugin({
         display: "standalone",
         theme_color: "#333",
       },

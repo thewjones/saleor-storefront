@@ -49,7 +49,6 @@ module.exports = ({ sourceDir, distDir }) => ({
         ],
       },
       {
-<<<<<<< HEAD
         test: /\.(gif|jpg|png|svg)$/,
         use: [
           {
@@ -69,12 +68,6 @@ module.exports = ({ sourceDir, distDir }) => ({
               mozjpeg: {
                 progressive: true,
                 quality: 85,
-=======
-        test: /\.(gif|jpg|png|svg|webp)$/,
-          use: [
-              {
-                  loader: "webp-loader?{quality: 100}",
->>>>>>> Custom theme development
               },
               {
                   loader: "file-loader",
@@ -84,29 +77,9 @@ module.exports = ({ sourceDir, distDir }) => ({
                       publicPath: "/images/",
                   },
               },
-<<<<<<< HEAD
             },
           },
         ],
-=======
-              {
-                  loader: "image-webpack-loader",
-                  options: {
-                      mozjpeg: {
-                          progressive: true,
-                          quality: 85,
-                      },
-                      pngquant: {
-                          quality: "65-90",
-                          speed: 4,
-                      },
-                      gifsicle: {
-                          enabled: false,
-                      },
-                  },
-              },
-          ],
->>>>>>> Custom theme development
       },
     ],
   },
@@ -134,8 +107,15 @@ module.exports = ({ sourceDir, distDir }) => ({
     // PWA plugins
     new WebappWebpackPlugin({
       favicons: {
+<<<<<<< HEAD
         appDescription: "Storefront for the Saleor e-commerce platform",
         appName: "Saleor",
+=======
+        appName: "Shift Everything Cargo Bikes",
+        appDescription: "Shifting the future of transport",
+        display: "standalone",
+        developerURL: null, // prevent retrieving from the nearest package.json
+>>>>>>> theme improvements
         background: "#ddd",
         developerURL: null, // prevent retrieving from the nearest package.json
         display: "standalone",

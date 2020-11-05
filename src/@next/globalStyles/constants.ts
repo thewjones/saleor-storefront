@@ -68,8 +68,8 @@ export const theme = {
 };
 
 // typography
-export const baseFontFamily = "'Inter', sans-serif";
-export const baseFontSize = "1rem"; // 16px
+export const baseFontFamily = "'proxima-nova', sans-serif";
+export const baseFontSize = "1.1rem"; // 16px
 export const baseLineHeight = "1.25rem"; // 20px
 export const boldFontWeight = 600;
 export const extraBoldFontWeight = 800;

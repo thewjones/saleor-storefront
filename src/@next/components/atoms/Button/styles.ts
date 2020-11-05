@@ -69,7 +69,7 @@ export const Text = styled.span<{ size: Size }>`
       button: { typography },
     },
   }) => fontSize(typography.fontSize, typography.smallFontSize)[size]};
-  text-transform: uppercase;
+
   font-weight: ${props => props.theme.typography.boldFontWeight};
   line-height: ${props => props.theme.typography.baseLineHeight};
 `;

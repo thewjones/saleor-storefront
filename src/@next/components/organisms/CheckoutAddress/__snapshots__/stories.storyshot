@@ -1264,7 +1264,7 @@ exports[`Storyshots @components/organisms/CheckoutAddress with addresses 1`] = `
 }
 
 .c6 {
-  text-transform: uppercase;
+  
   font-size: 1.125rem;
   text-align: center;
   vertical-align: center;

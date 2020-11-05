@@ -45,7 +45,7 @@ export const Title = styled.div`
   justify-content: space-between;
   margin: 0;
   font-size: ${props => props.theme.typography.h3FontSize};
-  text-transform: uppercase;
+
   font-weight: ${props => props.theme.typography.boldFontWeight};
   ${media.mediumScreen`
     font-size: ${(props: { theme: DefaultTheme }) =>
