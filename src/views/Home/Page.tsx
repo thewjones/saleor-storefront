@@ -49,7 +49,6 @@ useEffect(() => {
       </script>
       <div
         className="home-page__hero"
-        style={{backgroundImage: `url(${require("../../images/bullitt-trn.webp")})`}}
       >
 
       </div>

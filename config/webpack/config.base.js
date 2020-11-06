@@ -69,13 +69,9 @@ module.exports = ({ sourceDir, distDir }) => ({
                 progressive: true,
                 quality: 85,
               },
-              {
-                  loader: "file-loader",
-                  options: {
-                      name: "[name].[ext]",
-                      outputPath: "images/",
-                      publicPath: "/images/",
-                  },
+              pngquant: {
+                quality: "65-90",
+                speed: 4,
               },
             },
           },
@@ -107,15 +103,10 @@ module.exports = ({ sourceDir, distDir }) => ({
     // PWA plugins
     new WebappWebpackPlugin({
       favicons: {
-        appName: "Shift Everything Cargo Bikes",
-        appDescription: "Shifting the future of transport",
-        display: "standalone",
-        developerURL: null, // prevent retrieving from the nearest package.json
+        appDescription: "Storefront for the Saleor e-commerce platform",
+        appName: "Saleor",
         background: "#ddd",
-        theme_color: "#333",
-      },
-    }),
-    new webpack.EnvironmentPlugin({
+        developerURL: null, // prevent retrieving from the nearest package.json
         display: "standalone",
         theme_color: "#333",
       },

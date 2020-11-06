@@ -51,6 +51,7 @@
     "react-helmet": "^5.2.0",
     "react-hot-loader": "^4.9.0",
     "react-intersection-observer": "^8.25.2",
+    "react-intl": "^4.6.9",
     "react-mailchimp-form": "^1.0.2",
     "react-media": "^1.8.0",
     "react-number-format": "^3.6.2",
