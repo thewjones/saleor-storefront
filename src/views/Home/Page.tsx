@@ -49,6 +49,7 @@ useEffect(() => {
       </script>
       <div
         className="home-page__hero"
+        style={{backgroundImage: `url(${require("../../images/milk-plus-sides-cover.png")})`}}
       >
 
       </div>
@@ -72,13 +73,32 @@ useEffect(() => {
           <h2>Why Bullitt Cargo Bikes?</h2>
 
           <ul className="home-page__benefits">
-            <li>Flexible cargo options that adapt with you</li>
-            <li>Use standard bike parts anyone can service</li>
-            <li>Beautiful, Danish design</li>
-            <li>Built to fit riders of different sizes</li>
-            <li>11 colour finishes</li>
-            <li>Safe & stable</li>
-            <li>Green machines</li>
+            <li>
+              <h3>Adaptable by design</h3>
+              <p>Flexible cargo carrying options that adapt with you. Carry kids, pets, shopping, equipment, every thing.</p>
+            </li>
+            <li>
+              <h3>Designed to last</h3>
+              <p>Its hardened aluminium frame, hydraulic disc brakes and premium components make it one of the toughest cargo bikes on the market.</p>
+            </li>
+            <li><h3>Danish design</h3>
+              <p>Designed in Copenhagen, we think it's the most thoughtfully designed, best looking cargo bike available.</p></li>
+            <li><h3>One size fits</h3>
+            <p>One-size, gender neutral frame geometry that can be ridden by anyone small or tall.</p></li>
+            <li><h3>Ten colour finishes</h3>
+            <p>It comes in colours everywhere. Go classic black or split the infinitive and boldly go with one of our radical colour options.</p></li>
+            <li><h3>Compact and stable</h3>
+              <p>Compact frameset to negotiate UK's varying roads and cycleways.</p>
+            </li>
+            <li><h3>Cost Effective</h3>
+              <p>With minimal running costs, no fuel or parking cargo bikes are significantly cheaper per kilometre than a motor vehicle.</p>
+            </li>
+            <li><h3>Green machines</h3>
+              <p>Drastically lower your environmental impact when you travel. Say hello to the world around you.</p>
+            </li>
+            <li><h3>Suits your budget</h3>
+              <p>Build options to suit your budget. Ask us about a minimal, single-speed cargo bike or a fully equiped family rig.</p>
+            </li>
           </ul>
 
         </div>
@@ -93,7 +113,7 @@ useEffect(() => {
           <div className="container">
             <h2>Buy online</h2>
             <div className="home-page__categories__list">
-              {categories.edges.map(({ node: category }) => (
+              {categories.edges.slice(0, 2).map(({ node: category }) => (
                 <div key={category.id}>
                   <Link
                     to={generateCategoryUrl(category.id, category.name)}
