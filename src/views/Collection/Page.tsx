@@ -94,6 +94,7 @@ const Page: React.FC<PageProps> = ({
   return (
     <div className="collection">
       <div className="container">
+         <h1 class="listing_header">{collection.name}</h1>
         <Breadcrumbs breadcrumbs={breadcrumbs} />
         <FilterSidebar
           show={showFilters}
@@ -113,6 +114,7 @@ const Page: React.FC<PageProps> = ({
           onChange={onOrder}
           onCloseFilterAttribute={onAttributeFiltersChange}
         />
+
         {canDisplayProducts && (
           <ProductList
             products={products.edges.map(edge => edge.node)}

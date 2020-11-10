@@ -5,8 +5,7 @@ export const Wrapper = styled.div`
 `;
 
 export const Bar = styled.div`
-  height: 5rem;
-  background-color: ${props => props.theme.tile.backgroundColor};
+
   display: flex;
   justify-content: space-between;
   align-items: center;

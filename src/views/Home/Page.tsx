@@ -59,10 +59,10 @@ useEffect(() => {
           <ul className="home-page__collections">
             <li><a href="/product/bullitt-base/52/" className="basis"><article><h3>Base build</h3></article></a></li>
             <li><a href="/collection/family/3" className="kids"><article><h3>Family</h3></article></a></li>
-            <li><a href="/collection/business/5/" className="business"><article><h3>Business</h3></article></a></li>
-            <li><a href="/product/ebullitt-business/62/" className="electric"><article><h3>Electric</h3></article></a></li>
-            <li><a href="/collection/general-cargo/4/" className="touring"><article><h3>Touring</h3></article></a></li>
             <li><a href="/collection/general-cargo/4/" className="dogs"><article><h3>Dog transit</h3></article></a></li>
+            <li><a href="/product/ebullitt-business/62/" className="electric"><article><h3>Electric</h3></article></a></li>
+            <li><a href="/collection/business/5/" className="business"><article><h3>Business</h3></article></a></li>
+            <li><a href="/collection/general-cargo/4/" className="touring"><article><h3>Touring</h3></article></a></li>
           </ul>
         </div>
       </div>
@@ -74,11 +74,11 @@ useEffect(() => {
 
           <ul className="home-page__benefits">
             <li>
-              <h3>Adaptable by design</h3>
+              <h3>Adaptable</h3>
               <p>Flexible cargo carrying options that adapt with you. Carry kids, pets, shopping, equipment, every thing.</p>
             </li>
             <li>
-              <h3>Designed to last</h3>
+              <h3>Quality components</h3>
               <p>Its hardened aluminium frame, hydraulic disc brakes and premium components make it one of the toughest cargo bikes on the market.</p>
             </li>
             <li><h3>Danish design</h3>
@@ -97,7 +97,7 @@ useEffect(() => {
               <p>Drastically lower your environmental impact when you travel. Say hello to the world around you.</p>
             </li>
             <li><h3>Suits your budget</h3>
-              <p>Build options to suit your budget. Ask us about a minimal, single-speed cargo bike or a fully equiped family rig.</p>
+              <p>Build options to suit your budget. Ask us about a minimal single-speed cargo setup or a fully equiped family rig.</p>
             </li>
           </ul>
 

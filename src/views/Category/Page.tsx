@@ -89,6 +89,7 @@ const Page: React.FC<PageProps> = ({
   return (
     <div className="category">
       <div className="container">
+               <h1 class="listing_header">{category.name}</h1>
         <Breadcrumbs breadcrumbs={extractBreadcrumbs(category)} />
         <FilterSidebar
           show={showFilters}

@@ -1,5 +1,5 @@
 import * as React from "react";
-
+import slugify from 'react-slugify';
 
 import { RichTextContent } from "@components/atoms";
 import { Breadcrumb, Breadcrumbs } from "../../components";
@@ -25,9 +25,9 @@ export const Page: React.FC<PageProps> = ({
   navigation,
   page,
 }) => (
-  <div className="article-page">
+  <div className={"article-page article-page__" + slugify(page.title)}>
     <div
-      className="article-page__header"
+      className="article-page__header container"
     >
       <span className="article-page__header__title">
         <h1>{page.title}</h1>
