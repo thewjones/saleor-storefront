@@ -90,13 +90,13 @@ useEffect(() => {
             <li><h3>Compact and stable</h3>
               <p>Compact frameset to negotiate UK's varying roads and cycleways.</p>
             </li>
-            <li><h3>Cost Effective</h3>
+            <li><h3>Cost effective</h3>
               <p>With minimal running costs, no fuel or parking cargo bikes are significantly cheaper per kilometre than a motor vehicle.</p>
             </li>
             <li><h3>Green machines</h3>
               <p>Drastically lower your environmental impact when you travel. Say hello to the world around you.</p>
             </li>
-            <li><h3>Suits your budget</h3>
+            <li><h3>Built to your budget</h3>
               <p>Build options to suit your budget. Ask us about a minimal single-speed cargo setup or a fully equiped family rig.</p>
             </li>
           </ul>
