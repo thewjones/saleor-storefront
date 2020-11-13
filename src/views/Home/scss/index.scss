@@ -166,6 +166,16 @@
 
             font-family:$header-font-family;
             font-size:$h4-font-size;
+
+            @media (max-width: $medium-screen) {
+                flex-basis:50%;
+            }
+
+            @media (max-width: $small-screen) {
+                flex-basis:100%;
+            }
+
+
         }
         p {
             margin-top:1.5rem;
