@@ -57,11 +57,11 @@ useEffect(() => {
         <div className="home-page__featured">
           <h2>One Bicycle. Many Options.</h2>
           <ul className="home-page__collections">
-            <li><a href="/product/bullitt-base/52/" className="basis"><article><h3>Base build</h3></article></a></li>
-            <li><a href="/collection/family/3" className="kids"><article><h3>Family</h3></article></a></li>
+            <li><a href="/category/base/24/" className="basis"><article><h3>Base build</h3></article></a></li>
+            <li><a href="/category/family/20/" className="kids"><article><h3>Family</h3></article></a></li>
             <li><a href="/collection/general-cargo/4/" className="dogs"><article><h3>Dog transit</h3></article></a></li>
-            <li><a href="/product/ebullitt-business/62/" className="electric"><article><h3>Electric</h3></article></a></li>
-            <li><a href="/collection/business/5/" className="business"><article><h3>Business</h3></article></a></li>
+            <li><a href="/collection/electric/13/" className="electric"><article><h3>Electric</h3></article></a></li>
+            <li><a href="/category/business/21/" className="business"><article><h3>Business</h3></article></a></li>
             <li><a href="/collection/general-cargo/4/" className="touring"><article><h3>Touring</h3></article></a></li>
           </ul>
         </div>
