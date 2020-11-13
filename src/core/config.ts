@@ -52,7 +52,7 @@ export const SOCIAL_MEDIA = [
   },
   {
     ariaLabel: "twitter",
-    href: "https://twitter.com/shifteverthng",
+    href: "https://twitter.com/shifteverythng",
     path: require("../images/twitter-icon.svg"),
   },
 ];
