@@ -42,29 +42,24 @@ export const STATIC_PAGES = [
 export const SOCIAL_MEDIA = [
   {
     ariaLabel: "facebook",
-    href: "https://www.facebook.com/mirumeelabs/",
+    href: "https://www.facebook.com/Shift-Everything-118571543390602",
     path: require("../images/facebook-icon.svg"),
   },
   {
     ariaLabel: "instagram",
-    href: "https://www.instagram.com/mirumeelabs/",
+    href: "https://www.instagram.com/shifteverything/",
     path: require("../images/instagram-icon.svg"),
   },
   {
     ariaLabel: "twitter",
-    href: "https://twitter.com/getsaleor",
+    href: "https://twitter.com/shifteverthng",
     path: require("../images/twitter-icon.svg"),
-  },
-  {
-    ariaLabel: "youtube",
-    href: "https://www.youtube.com/channel/UCg_ptb-U75e7BprLCGS4s1g/videos",
-    path: require("../images/youtube-icon.svg"),
   },
 ];
 export const META_DEFAULTS = {
   custom: [],
   description:
-    "Open-source PWA storefront built with Saleor's e-commerce GraphQL API. Written with React and TypeScript.",
+    "Specialists in adaptable Cargo Bikes for family transport, pets, business, and everything else.",
   image: `${window.location.origin}${require("../images/logo.svg")}`,
   title: "Shift Everything Cargo Bikes",
   type: "website",

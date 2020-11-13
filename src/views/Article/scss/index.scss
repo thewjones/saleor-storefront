@@ -82,6 +82,15 @@ transition: fade 2s linear;
       }
     }
 
+    a {
+        color:#6faf00;
+        text-decoration:underline;
+        text-decoration-color: #6faf00;
+  text-decoration-thickness: .125em;
+  text-underline-offset: 3px;
+
+    }
+
     ol {
       position: relative;
       counter-reset: my-awesome-counter;
