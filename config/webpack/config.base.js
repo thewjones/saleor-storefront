@@ -49,8 +49,11 @@ module.exports = ({ sourceDir, distDir }) => ({
         ],
       },
       {
-        test: /\.(gif|jpg|png|svg)$/,
+        test: /\.(gif|jpg|png|svg|webp)$/,
         use: [
+	  {
+	    loader: "webp-loader"	
+          },
           {
             loader: "file-loader",
             options: {

@@ -19,9 +19,9 @@ import { structuredData } from "../../core/SEO/Homepage/structuredData";
 
 import noPhotoImg from "../../images/no-photo.svg";
 
-import headerPng from "../../images/milk-plus-sides-cover.png";
+import headerPng from "../../images/ebullitt-home-opt.png";
 
-import headerWebp from "../../images/bullitt-trn.webp";
+import headerWebp from "../../images/ebullitt-home.webp";
 
 const { useEffect } = React;
 
@@ -53,9 +53,9 @@ const supportsWebP = useWebPSupportCheck();
 
 
  {supportsWebP ? (
- $headerImage = headerPng
-      ) : (
  $headerImage = headerWebp
+      ) : (
+ $headerImage = headerPng
       )}
 
   return (
