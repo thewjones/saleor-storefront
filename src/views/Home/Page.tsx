@@ -5,6 +5,8 @@ import * as React from "react";
 import { FormattedMessage, useIntl } from "react-intl";
 import { Link } from "react-router-dom";
 
+import { useWebPSupportCheck } from "react-use-webp-support-check";
+
 import { generateCategoryUrl } from "../../core/utils";
 
 import {
@@ -16,6 +18,10 @@ import {
 import { structuredData } from "../../core/SEO/Homepage/structuredData";
 
 import noPhotoImg from "../../images/no-photo.svg";
+
+import headerPng from "../../images/milk-plus-sides-cover.png";
+
+import headerWebp from "../../images/bullitt-trn.webp";
 
 const { useEffect } = React;
 
@@ -40,7 +46,17 @@ useEffect(() => {
       document.body.classList.remove('home');
     };
   }, ['fixed']);
+const supportsWebP = useWebPSupportCheck();
 
+
+  var $headerImage;
+
+
+ {supportsWebP ? (
+ $headerImage = headerPng
+      ) : (
+ $headerImage = headerWebp
+      )}
 
   return (
     <>
@@ -49,7 +65,7 @@ useEffect(() => {
       </script>
       <div
         className="home-page__hero"
-        style={{backgroundImage: `url(${require("../../images/milk-plus-sides-cover.png")})`}}
+        style={{backgroundImage: `url(${$headerImage})`}}
       >
 
       </div>
