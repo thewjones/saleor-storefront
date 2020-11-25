@@ -10,6 +10,7 @@ import { generatePageUrl, maybe } from "../../core/utils";
 import { Article_collection } from "./gqlTypes/Article";
 import Page from "./Page";
 import { TypedArticleQuery } from "./query";
+import { META_DEFAULTS } from "../../core/config";
 
 const canDisplay = page =>
   maybe(() => !!page && !!page.title && !!page.contentJson);
@@ -46,7 +47,7 @@ export const View: React.FC<ViewProps> = ({
           <MetaWrapper
             meta={{
               description: page.seoDescription,
-              title: page.seoTitle,
+              title: META_DEFAULTS.title + ' - ' + (page.seoTitle || page.title),
             }}
           >
             <Page

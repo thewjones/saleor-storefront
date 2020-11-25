@@ -10,6 +10,7 @@ import { channelSlug } from "@temp/constants";
 import { MetaWrapper, NotFound } from "../../components";
 import NetworkStatus from "../../components/NetworkStatus";
 import { PRODUCTS_PER_PAGE } from "../../core/config";
+import { META_DEFAULTS } from "../../core/config";
 import {
   convertSortByFromString,
   convertToAttributeScalar,
@@ -199,7 +200,7 @@ export const View: React.FC<ViewProps> = ({ match }) => {
                         meta={{
                           description:
                             collectionData.data.collection.seoDescription,
-                          title: collectionData.data.collection.seoTitle,
+                          title: META_DEFAULTS.title + ' - ' + (collectionData.data.collection.seoTitle || collectionData.data.collection.seoTitle),
                           type: "product.collection",
                         }}
                       >

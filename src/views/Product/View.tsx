@@ -17,6 +17,8 @@ import Page from "./Page";
 import { TypedProductDetailsQuery } from "./queries";
 import { IProps } from "./types";
 
+import { META_DEFAULTS } from "../../core/config";
+
 const canDisplay = (product: ProductDetails_product) =>
   maybe(
     () =>
@@ -46,7 +48,7 @@ const extractMeta = (product: ProductDetails_product) => ({
   ],
   description: product.seoDescription || product.descriptionJson,
   image: product?.thumbnail?.url || null,
-  title: product.seoTitle || product.name,
+  title: META_DEFAULTS.title + ' - ' + (product.seoTitle || product.name),
   type: "product.item",
   url: window.location.href,
 });

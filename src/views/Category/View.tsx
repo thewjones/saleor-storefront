@@ -10,6 +10,7 @@ import { Loader, OfflinePlaceholder } from "@components/atoms";
 import { MetaWrapper, NotFound } from "../../components";
 import NetworkStatus from "../../components/NetworkStatus";
 import { PRODUCTS_PER_PAGE } from "../../core/config";
+import { META_DEFAULTS } from "../../core/config";
 import {
   convertSortByFromString,
   convertToAttributeScalar,
@@ -192,7 +193,7 @@ export const View: React.FC<ViewProps> = ({ match }) => {
                         meta={{
                           description:
                             categoryData.data.category.seoDescription,
-                          title: categoryData.data.category.seoTitle,
+                          title: META_DEFAULTS.title + ' - ' + (categoryData.data.category.name || categoryData.data.category.seoTitle),
                           type: "product.category",
                         }}
                       >
